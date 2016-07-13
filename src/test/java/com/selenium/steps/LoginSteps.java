@@ -1,7 +1,5 @@
 package com.selenium.steps;
 
-
-
 import com.selenium.pages.LoginPage;
 
 import net.thucydides.core.annotations.Step;
@@ -9,8 +7,7 @@ import net.thucydides.core.annotations.StepGroup;
 
 public class LoginSteps {
 
-LoginPage evoportalLoginPage;
-	
+	LoginPage evoportalLoginPage;
 
 	@Step
 	public void enters(String username) {
@@ -40,10 +37,9 @@ LoginPage evoportalLoginPage;
 	}
 
 	@Step
-	public void verifyIfUserIsLoggedIn(String vacationElementText){
+	public void verifyIfUserIsLoggedIn(String vacationElementText) {
 		evoportalLoginPage.assertText(vacationElementText);
 	}
-	
 
 	@StepGroup
 	public void performLogin(String username, String password) {
