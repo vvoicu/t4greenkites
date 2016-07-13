@@ -8,15 +8,16 @@ import com.selenium.steps.HeaderNavigationSteps;
 import com.selenium.steps.HomePageSteps;
 import com.selenium.steps.LeftMenuSteps;
 import com.selenium.steps.LoginSteps;
-import com.selenium.steps.contentPageSteps;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
 import tools.Constants;
 
+
 @RunWith(SerenityRunner.class)
-public class Test_ContentPage {
+public class Test_LeftMenuClick {
+
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
 	
@@ -30,19 +31,15 @@ public class Test_ContentPage {
 	public HeaderNavigationSteps headerSteps;
 	
 	@Steps
-	public LeftMenuSteps leftMenuSteps;	
-	
-	@Steps
-	public contentPageSteps content;
-	
+	public LeftMenuSteps leftMenuSteps;
+
 	@Test
-	public void createNewVacationRequest() {
+	public void performHeaderNavigation(){
 		home.is_the_home_page();
 		home.starts_searchForSignInButton();
 		userSteps.performLogin(Constants.USERNAME, Constants.PASSWORD);
 		headerSteps.selectMenuItem();
-		leftMenuSteps.click_firstElement();
-		content.searchForSaveButoon();
+		leftMenuSteps.click_leftMenu_listItems();
+		
 	}
-	
 }
