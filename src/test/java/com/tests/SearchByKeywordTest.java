@@ -1,22 +1,18 @@
 package com.tests;
 
-import net.serenitybdd.junit.runners.SerenityRunner;
-import net.thucydides.core.annotations.Issue;
-import net.thucydides.core.annotations.Managed;
-import net.thucydides.core.annotations.Pending;
-import net.thucydides.core.annotations.Steps;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.openqa.selenium.WebDriver;
 
 import com.selenium.steps.EndUserSteps;
 
-@RunWith(SerenityRunner.class)
-public class SearchByKeywordTest {
+import net.serenitybdd.junit.runners.SerenityRunner;
+import net.thucydides.core.annotations.Issue;
+import net.thucydides.core.annotations.Pending;
+import net.thucydides.core.annotations.Steps;
 
-    @Managed(uniqueSession = true)
-    public WebDriver webdriver;
+@RunWith(SerenityRunner.class)
+public class SearchByKeywordTest extends BaseTest{
+
 
     @Steps
     public EndUserSteps anna;
