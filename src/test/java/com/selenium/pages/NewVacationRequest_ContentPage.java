@@ -27,6 +27,11 @@ public class NewVacationRequest_ContentPage extends PageObject {
 		yearElement.click();
 	}
 
+	
+	/**
+	 * Verify if currentYear is the year that you, as a user, want, if not, while cycles will find the currentYear
+	 * @param year
+	 */
 	public void selectYear(String year) {
 		boolean verifyYear = false;
 		WebElement currentYear = datePicker.findElement(By.cssSelector(".dp_caption"));
@@ -46,7 +51,7 @@ public class NewVacationRequest_ContentPage extends PageObject {
 
 	public void selectMonth(String month) {
 		WebElement selectMonth = datePicker.findElement(By.cssSelector(".dp_monthpicker"));
-		List<WebElement> typeList = selectMonth.findElements(By.cssSelector("td:not(.dp_disabled)"));
+		List<WebElement> typeList = selectMonth.findElements(By.cssSelector("td:not(.dp_disabled)"));//select only the active month
 		for (WebElement list : typeList) {
 			System.out.println("Current active months " + list.getText());
 			if (list.getText().contentEquals(month)) {
@@ -59,7 +64,7 @@ public class NewVacationRequest_ContentPage extends PageObject {
 	public void selectDay(String day) {
 		WebElement selectDay = datePicker.findElement(By.cssSelector(".dp_daypicker"));
 		List<WebElement> typeDaysList = selectDay.findElements(By.cssSelector(
-				".dp_daypicker td:not(.dp_not_in_month)+td:not(.dp_disabled)+td:not(dp_weekend_disabled)"));
+				".dp_daypicker td:not(.dp_not_in_month)+td:not(.dp_disabled)+td:not(dp_weekend_disabled)")); //select only the active days
 		for (WebElement daylist : typeDaysList) {
 			if (daylist.getText().contentEquals(day)) {
 				daylist.click();

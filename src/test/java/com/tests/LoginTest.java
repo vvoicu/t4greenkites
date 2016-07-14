@@ -21,7 +21,7 @@ public class LoginTest extends BaseTest{
 
 	@Test
 	public void loginSimpleUser() {
-		homeSteps.is_the_home_page();
+		homeSteps.isTheHomePage();
 		homeSteps.starts_searchForSignInButton();
 		userSteps.performLogin(Constants.USERNAME, Constants.PASSWORD);
 		userSteps.verifyIfUserIsLoggedIn("VACATION");
