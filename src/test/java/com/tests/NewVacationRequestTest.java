@@ -15,16 +15,16 @@ import net.thucydides.core.annotations.Steps;
 import tools.Constants;
 
 @RunWith(SerenityRunner.class)
-public class Test_NewVacationRequest extends BaseTest {
+public class NewVacationRequestTest extends BaseTest {
 
 	@Steps
 	public LoginSteps userSteps;
 
 	@Steps
-	public HomePageSteps home;
+	public HomePageSteps homeSteps;
 
 	@Steps
-	public HeaderNavigationSteps headerSteps;
+	public HeaderNavigationSteps headerNavigationSteps;
 
 	@Steps
 	public LeftMenuSteps leftMenuSteps;
@@ -39,11 +39,11 @@ public class Test_NewVacationRequest extends BaseTest {
 
 	@Test
 	public void createAVacationRequest() {
-		home.is_the_home_page();
-		home.starts_searchForSignInButton();
+		homeSteps.is_the_home_page();
+		homeSteps.starts_searchForSignInButton();
 		userSteps.performLogin(Constants.USERNAME, Constants.PASSWORD);
-		headerSteps.selectMenuItem();
-		leftMenuSteps.click_firstElement();
+		headerNavigationSteps.selectMenuItem();
+		leftMenuSteps.clickNewVacationRequest();
 		newVacationSteps.selectStartDateField();
 		newVacationSteps.clickYear();
 		newVacationSteps.selectStartDate(year,month,day);

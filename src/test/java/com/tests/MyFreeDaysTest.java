@@ -14,32 +14,32 @@ import net.thucydides.core.annotations.Steps;
 import tools.Constants;
 
 @RunWith(SerenityRunner.class)
-public class Test_MyFreeDays extends BaseTest {
+public class MyFreeDaysTest extends BaseTest {
 
 	@Steps
 	public LoginSteps userSteps;
 
 	@Steps
-	public HomePageSteps home;
+	public HomePageSteps homeSteps;
 
 	@Steps
-	public HeaderNavigationSteps headerSteps;
+	public HeaderNavigationSteps headerNavigationSteps;
 
 	@Steps
 	public LeftMenuSteps leftMenuSteps;
 
 	@Steps
-	public MyFreeDaysSteps myfreedays;
+	public MyFreeDaysSteps myFreeDays;
 	
-	public String textToverify="My Free Days";
+	public String textToVerify="My Free Days";
 
 	@Test
 	public void verifyTheUserFreeDays() {
-		home.is_the_home_page();
-		home.starts_searchForSignInButton();
+		homeSteps.is_the_home_page();
+		homeSteps.starts_searchForSignInButton();
 		userSteps.performLogin(Constants.USERNAME, Constants.PASSWORD);
-		headerSteps.selectMenuItem();
+		headerNavigationSteps.selectMenuItem();
 		leftMenuSteps.clickMyFreeDays();
-		myfreedays.verifyTheUserFreeDays(textToverify);
+		myFreeDays.verifyTheUserFreeDays(textToVerify);
 	}
 }
