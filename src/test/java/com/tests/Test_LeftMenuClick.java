@@ -40,5 +40,6 @@ public class Test_LeftMenuClick {
 		userSteps.performLogin(Constants.USERNAME, Constants.PASSWORD);
 		headerSteps.selectMenuItem();
 		leftMenuSteps.click_leftMenu_listItems();
+		
 	}
 }
