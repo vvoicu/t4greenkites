@@ -16,38 +16,38 @@ public class LeftMenuSteps {
 	
 	//Steps for List Items to click
 	@Step
-	public void click_firstElement(){
+	public void clickNewVacationRequest(){
 		LeftMenuPage.clickNewVacationRequest();
 	}
 	
 	@Step
-	public void click_secondElement(){
+	public void clickMyRequests(){
 		LeftMenuPage.clickMyRequests();
 	}
 	
 	@Step
-	public void click_thirdElement(){
+	public void clickMyFreeDays(){
 		LeftMenuPage.clickMyFreeDays();
 	}
 	
 	@Step
-	public void click_fourthElement(){
+	public void clickFreeDaysHistory(){
 		LeftMenuPage.clickFreeDaysHistory();
 	}
 	
 	@Step
-	public void click_fifthElement(){
+	public void clickTrack(){
 		LeftMenuPage.clickTrack();
 	}
 	
 	//All the above steps in a StepGroup
 	@StepGroup
-	public void click_leftMenu_listItems() {
-		click_firstElement();
-		click_secondElement();
-		click_thirdElement();
-		click_fourthElement();
-		click_fifthElement();
+	public void clickLeftMenuListItems() {
+		clickNewVacationRequest();
+		clickMyRequests();
+		clickMyFreeDays();
+		clickFreeDaysHistory();
+		clickTrack();
 	}
 
 	
