@@ -2,21 +2,16 @@ package com.tests;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.openqa.selenium.WebDriver;
 
 import com.selenium.steps.HomePageSteps;
 import com.selenium.steps.LoginSteps;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
-import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
 import tools.Constants;
 
 @RunWith(SerenityRunner.class)
-public class Test_Login {
-
-	@Managed(uniqueSession = true)
-	public WebDriver webdriver;
+public class Test_Login extends BaseTest{
 
 	@Steps
 	public LoginSteps userSteps;

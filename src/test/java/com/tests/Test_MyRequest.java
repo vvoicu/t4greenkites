@@ -7,15 +7,17 @@ import com.selenium.steps.HeaderNavigationSteps;
 import com.selenium.steps.HomePageSteps;
 import com.selenium.steps.LeftMenuSteps;
 import com.selenium.steps.LoginSteps;
+import com.selenium.steps.MyRequestSteps;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import tools.Constants;
 
-
 @RunWith(SerenityRunner.class)
-public class Test_LeftMenuClick extends BaseTest{
+public class Test_MyRequest extends BaseTest{
 
+	@Steps
+	public MyRequestSteps myRequestsSteps;
 	
 	@Steps
 	public LoginSteps userSteps;
@@ -28,14 +30,17 @@ public class Test_LeftMenuClick extends BaseTest{
 	
 	@Steps
 	public LeftMenuSteps leftMenuSteps;
-
+	
 	@Test
-	public void performHeaderNavigation(){
+	public void findElement(){
 		home.is_the_home_page();
 		home.starts_searchForSignInButton();
 		userSteps.performLogin(Constants.USERNAME, Constants.PASSWORD);
 		headerSteps.selectMenuItem();
-		leftMenuSteps.click_leftMenu_listItems();
-		
+		leftMenuSteps.click_secondElement();
+		myRequestsSteps.click_CheckBoxItem("Holiday");
+		myRequestsSteps.click_ApplyButton();
+		myRequestsSteps.find_WebElement("Holiday");
 	}
+	
 }

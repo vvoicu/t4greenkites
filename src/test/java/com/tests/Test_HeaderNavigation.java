@@ -2,23 +2,19 @@ package com.tests;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.openqa.selenium.WebDriver;
 
 import com.selenium.steps.HeaderNavigationSteps;
 import com.selenium.steps.HomePageSteps;
 import com.selenium.steps.LoginSteps;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
-import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
 import tools.Constants;
 
 
 @RunWith(SerenityRunner.class)
-public class Test_HeaderNavigation {
+public class Test_HeaderNavigation extends BaseTest{
 
-	@Managed(uniqueSession = true)
-	public WebDriver webdriver;
 	
 	@Steps
 	public LoginSteps userSteps;
@@ -29,6 +25,8 @@ public class Test_HeaderNavigation {
 	@Steps
 	public HeaderNavigationSteps headerSteps;
 
+	
+	
 	@Test
 	public void performHeaderNavigation(){
 		home.is_the_home_page();
