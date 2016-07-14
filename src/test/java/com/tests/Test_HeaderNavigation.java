@@ -32,7 +32,6 @@ public class Test_HeaderNavigation extends BaseTest{
 		home.is_the_home_page();
 		home.starts_searchForSignInButton();
 		userSteps.performLogin(Constants.USERNAME, Constants.PASSWORD);
-//		userSteps.verifyIfUserIsLoggedIn("VACATION");
 		headerSteps.selectMenuItem();
 	}
 }
