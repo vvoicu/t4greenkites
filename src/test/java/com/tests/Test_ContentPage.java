@@ -37,7 +37,7 @@ public class Test_ContentPage extends BaseTest{
 		home.starts_searchForSignInButton();
 		userSteps.performLogin(Constants.USERNAME, Constants.PASSWORD);
 		headerSteps.selectMenuItem();
-		leftMenuSteps.click_firstElement();
+		leftMenuSteps.clickNewVacationRequest();
 		content.searchForSaveButoon();
 	}
 	

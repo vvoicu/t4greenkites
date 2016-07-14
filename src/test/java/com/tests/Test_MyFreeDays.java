@@ -39,7 +39,7 @@ public class Test_MyFreeDays extends BaseTest {
 		home.starts_searchForSignInButton();
 		userSteps.performLogin(Constants.USERNAME, Constants.PASSWORD);
 		headerSteps.selectMenuItem();
-		leftMenuSteps.click_thirdElement();
+		leftMenuSteps.clickMyFreeDays();
 		myfreedays.verifyTheUserFreeDays(textToverify);
 	}
 }

@@ -10,35 +10,35 @@ public class LeftMenuPage extends PageObject {
 
 	//Objects Left Menu
 	@FindBy(css = "div.carousel-slider.span3:first-child ul li:nth-child(2)")
-	private WebElementFacade NewVacationRequest;
+	private WebElementFacade newVacationRequest;
 	
 	@FindBy(css = "div.carousel-slider.span3:first-child ul li:nth-child(3)")
-	private WebElementFacade MyRequests;
+	private WebElementFacade myRequests;
 
 	@FindBy(css = "div.carousel-slider.span3 ul li:nth-child(4)")
-	private WebElementFacade MyFreeDays;
+	private WebElementFacade myFreeDays;
 	
 	@FindBy(css = "div.carousel-slider.span3 ul li:nth-child(5)")
-	private WebElementFacade MyFreeDaysHistory;
+	private WebElementFacade myFreeDaysHistory;
 	
 	@FindBy(css = "div.carousel-slider.span3:nth-child(2) ul li:nth-child(3)")
-	private WebElementFacade Track;
+	private WebElementFacade track;
 	
 	//Methods for Objects
 	public void clickNewVacationRequest() {
-		NewVacationRequest.click();
+		newVacationRequest.click();
 	}
 	public void clickMyRequests() {
-		MyRequests.click();
+		myRequests.click();
 	}
 	public void clickMyFreeDays() {
-		MyFreeDays.click();
+		myFreeDays.click();
 	}
 	public void clickFreeDaysHistory() {
-		MyFreeDaysHistory.click();
+		myFreeDaysHistory.click();
 	}
 	public void clickTrack() {
-		Track.click();
+		track.click();
 	}
 	
 }

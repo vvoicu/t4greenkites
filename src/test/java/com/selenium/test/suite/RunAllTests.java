@@ -6,14 +6,14 @@ import org.junit.runners.Suite.SuiteClasses;
 
 import com.tests.Test_ContentPage;
 import com.tests.Test_HeaderNavigation;
-import com.tests.Test_LeftMenuClick;
+import com.tests.LeftMenuClickItemsTest;
 import com.tests.Test_Login;
 
 @RunWith(Suite.class)
 @SuiteClasses({
 	Test_Login.class,
 	Test_HeaderNavigation.class,
-	Test_LeftMenuClick.class,
+	LeftMenuClickItemsTest.class,
 	Test_ContentPage.class,
 	
 })
