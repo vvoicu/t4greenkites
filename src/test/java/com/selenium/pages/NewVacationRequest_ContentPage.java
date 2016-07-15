@@ -30,12 +30,12 @@ public class NewVacationRequest_ContentPage extends PageObject {
 	@FindBy(css="div.vacationType ")
 	private WebElementFacade vacationTypeCheckbox;
 	
-	public void clickOnVacationTypeCheckBox(String checkboxName){
-		List<WebElement> listType=vacationTypeCheckbox.findElements(By.cssSelector("label"));
-		for(WebElement list:listType){
-		
-		}
-	}
+//	public void clickOnVacationTypeCheckBox(String checkboxName){
+//		List<WebElement> listType=vacationTypeCheckbox.findElements(By.cssSelector("label"));
+//		for(WebElement list:listType){
+//		
+//		}
+//	}
 
 	public void clickOnSaveButton(){
 		saveButton.click();
