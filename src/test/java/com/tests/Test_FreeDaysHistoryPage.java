@@ -44,9 +44,9 @@ public class Test_FreeDaysHistoryPage {
 		userSteps.performLogin(Constants.USERNAME, Constants.PASSWORD);
 		headerSteps.selectMenuItem();
 		leftMenuSteps.clickFreeDaysHistory();
-		freeDaysHistory.selectCheckboxType("Vacation days");
+		freeDaysHistory.selectVactionTypeFilter("Vacation days");
 		freeDaysHistory.selectCheckboxOperation("Removed Days");
-		freeDaysHistory.searchForApplyButton();
+		freeDaysHistory.clickApplyButton();
 		
 	}
 

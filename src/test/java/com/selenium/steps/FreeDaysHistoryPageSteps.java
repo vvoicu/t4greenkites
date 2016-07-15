@@ -9,8 +9,8 @@ public class FreeDaysHistoryPageSteps {
 	FreeDaysHistoryPage freeDaysHistoryPage;
 
 	@Step
-	public void selectCheckboxType(String textToVerify) {
-		freeDaysHistoryPage.checkboxType(textToVerify);
+	public void selectVactionTypeFilter(String textToVerify) {
+		freeDaysHistoryPage.selectVactionTypeFilter(textToVerify);
 	}
 	
 	@Step 
@@ -19,11 +19,10 @@ public class FreeDaysHistoryPageSteps {
 	}
 	
 	@Step
-	public void searchForApplyButton() {
-		freeDaysHistoryPage.applyButton();
+	public void clickApplyButton() {
+		freeDaysHistoryPage.clickApplyButton();
 	}
 	
-//	/div.aui-column.aui-w75.aui-column-last span.aui-button-content input.aui-button-input
 }
 	
 	

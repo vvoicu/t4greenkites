@@ -11,12 +11,16 @@ import net.serenitybdd.core.pages.WebElementFacade;
 
 public class FreeDaysHistoryPage extends PageObject {
 
-	// identify 1-st block and create "list" for checking list items
-	// Object "Type" elements block
 	@FindBy(css = "div.filter-content-history div.aui-column-first")
 	private WebElementFacade filterType;
 
-	public void checkboxType(String checkboxName) {
+	@FindBy(css = "input.aui-button-input")
+	private WebElementFacade clickApplyButton;
+
+	@FindBy(css = ".aui-column.column-three.aui-column-last")
+	private WebElementFacade filterOperation;
+
+	public void selectVactionTypeFilter(String checkboxName) {
 		List<WebElement> typeList = filterType.findElements(By.cssSelector("label"));
 		for (WebElement listItem : typeList) {
 			if (listItem.getText().toLowerCase().contentEquals(checkboxName.toLowerCase())) {
@@ -25,12 +29,6 @@ public class FreeDaysHistoryPage extends PageObject {
 
 		}
 	}
-
-	// indentify 3-rd block and create method for checking list items
-
-	// Object: "Operation" elements block
-	@FindBy(css = ".aui-column.column-three.aui-column-last")
-	private WebElementFacade filterOperation;
 
 	public void checkboxOperation(String checkboxOperationName) {
 		List<WebElement> typeListOperation = filterOperation.findElements(By.cssSelector("label"));
@@ -41,14 +39,8 @@ public class FreeDaysHistoryPage extends PageObject {
 		}
 	}
 
-	// click on Apply
-	@FindBy(css = "input.aui-button-input")
-	private WebElementFacade clickApplyButton;
-	
-	public void applyButton() {
+	public void clickApplyButton() {
 		clickApplyButton.click();
 	}
-	
-	
-	
+
 }
