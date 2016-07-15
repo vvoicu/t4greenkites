@@ -7,39 +7,40 @@ import com.selenium.steps.HeaderNavigationSteps;
 import com.selenium.steps.HomePageSteps;
 import com.selenium.steps.LeftMenuSteps;
 import com.selenium.steps.LoginSteps;
-import com.selenium.steps.MyFreeDaysSteps;
+import com.selenium.steps.MyRequestSteps;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import tools.Constants;
 
 @RunWith(SerenityRunner.class)
-public class Test_MyFreeDays extends BaseTest {
+public class MyRequestTest extends BaseTest{
 
+	@Steps
+	public MyRequestSteps myRequestsSteps;
+	
 	@Steps
 	public LoginSteps userSteps;
-
+	
 	@Steps
 	public HomePageSteps home;
-
+	
 	@Steps
 	public HeaderNavigationSteps headerSteps;
-
+	
 	@Steps
 	public LeftMenuSteps leftMenuSteps;
-
-	@Steps
-	public MyFreeDaysSteps myfreedays;
 	
-	public String textToverify="My Free Days";
-
 	@Test
-	public void verifyTheUserFreeDays() {
-		home.is_the_home_page();
+	public void findElement(){
+		home.isTheHomePage();
 		home.starts_searchForSignInButton();
 		userSteps.performLogin(Constants.USERNAME, Constants.PASSWORD);
 		headerSteps.selectMenuItem();
-		leftMenuSteps.clickMyFreeDays();
-		myfreedays.verifyTheUserFreeDays(textToverify);
+		leftMenuSteps.clickMyRequests();
+		myRequestsSteps.clickCheckBoxItem("Holiday");
+		myRequestsSteps.clickApplyButton();
+		myRequestsSteps.findWebElement("Holiday");
 	}
+	
 }

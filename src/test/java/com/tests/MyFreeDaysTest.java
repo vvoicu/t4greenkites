@@ -7,38 +7,39 @@ import com.selenium.steps.HeaderNavigationSteps;
 import com.selenium.steps.HomePageSteps;
 import com.selenium.steps.LeftMenuSteps;
 import com.selenium.steps.LoginSteps;
-import com.selenium.steps.contentPageSteps;
+import com.selenium.steps.MyFreeDaysSteps;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import tools.Constants;
 
 @RunWith(SerenityRunner.class)
-public class Test_ContentPage extends BaseTest{
-	
+public class MyFreeDaysTest extends BaseTest {
+
 	@Steps
 	public LoginSteps userSteps;
-	
+
 	@Steps
-	public HomePageSteps home;
-	
+	public HomePageSteps homeSteps;
+
 	@Steps
-	public HeaderNavigationSteps headerSteps;
-	
+	public HeaderNavigationSteps headerNavigationSteps;
+
 	@Steps
-	public LeftMenuSteps leftMenuSteps;	
-	
+	public LeftMenuSteps leftMenuSteps;
+
 	@Steps
-	public contentPageSteps content;
+	public MyFreeDaysSteps myFreeDays;
 	
+	public String textToVerify="My Free Days";
+
 	@Test
-	public void createNewVacationRequest() {
-		home.isTheHomePage();
-		home.starts_searchForSignInButton();
+	public void verifyTheUserFreeDays() {
+		homeSteps.isTheHomePage();
+		homeSteps.starts_searchForSignInButton();
 		userSteps.performLogin(Constants.USERNAME, Constants.PASSWORD);
-		headerSteps.selectMenuItem();
-		leftMenuSteps.clickNewVacationRequest();
-		content.searchForSaveButoon();
+		headerNavigationSteps.selectMenuItem();
+		leftMenuSteps.clickMyFreeDays();
+		myFreeDays.verifyTheUserFreeDays(textToVerify);
 	}
-	
 }

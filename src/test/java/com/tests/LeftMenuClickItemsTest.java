@@ -31,7 +31,7 @@ public class LeftMenuClickItemsTest extends BaseTest{
 
 	@Test
 	public void performHeaderNavigation(){
-		home.is_the_home_page();
+		home.isTheHomePage();
 		home.starts_searchForSignInButton();
 		userSteps.performLogin(Constants.USERNAME, Constants.PASSWORD);
 		headerSteps.selectMenuItem();

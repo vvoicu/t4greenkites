@@ -38,11 +38,11 @@ public class Test_FreeDaysHistoryPage {
 	
 	@Test
 	public void checkFreeDaysHistory () {
-		home.is_the_home_page();
+		home.isTheHomePage();
 		home.starts_searchForSignInButton();
 		userSteps.performLogin(Constants.USERNAME, Constants.PASSWORD);
 		headerSteps.selectMenuItem();
-		leftMenuSteps.click_fourthElement();
+		leftMenuSteps.clickFreeDaysHistory();
 		freeDaysHistory.clickOnTypeAndDaysNumberCheckbox();
 		
 	}
