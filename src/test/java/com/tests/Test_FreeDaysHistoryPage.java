@@ -17,34 +17,36 @@ import tools.Constants;
 
 @RunWith(SerenityRunner.class)
 public class Test_FreeDaysHistoryPage {
-	
+
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
-	
+
 	@Steps
 	public LoginSteps userSteps;
-	
+
 	@Steps
 	public HomePageSteps home;
-	
+
 	@Steps
 	public HeaderNavigationSteps headerSteps;
-	
+
 	@Steps
 	public LeftMenuSteps leftMenuSteps;
-	
+
 	@Steps
 	public FreeDaysHistoryPageSteps freeDaysHistory;
 	
+	
 	@Test
-	public void checkFreeDaysHistory () {
+	public void checkFreeDaysHistory() {
 		home.is_the_home_page();
 		home.starts_searchForSignInButton();
 		userSteps.performLogin(Constants.USERNAME, Constants.PASSWORD);
 		headerSteps.selectMenuItem();
-		leftMenuSteps.click_fourthElement();
-		freeDaysHistory.clickOnTypeAndDaysNumberCheckbox();
-		
+		leftMenuSteps.clickFreeDaysHistory();
+		freeDaysHistory.selectCheckboxType("Vacation days");
+		freeDaysHistory.selectCheckboxOperation("Removed Days");
+		freeDaysHistory.searchForApplyButton();
 	}
 
 }

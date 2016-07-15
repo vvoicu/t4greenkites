@@ -14,7 +14,7 @@ import net.thucydides.core.annotations.Steps;
 import tools.Constants;
 
 @RunWith(SerenityRunner.class)
-public class Test_ContentPage extends BaseTest{
+public class ContentPageTest extends BaseTest{
 	
 	@Steps
 	public LoginSteps userSteps;

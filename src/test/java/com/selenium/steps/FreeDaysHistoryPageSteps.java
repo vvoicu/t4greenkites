@@ -6,27 +6,26 @@ import net.thucydides.core.annotations.Step;
 import net.thucydides.core.annotations.StepGroup;
 
 public class FreeDaysHistoryPageSteps {
-	FreeDaysHistoryPage FreeDaysHistoryPage;
+	FreeDaysHistoryPage freeDaysHistoryPage;
+
+	@Step
+	public void selectCheckboxType(String textToVerify) {
+		freeDaysHistoryPage.checkboxType(textToVerify);
+	}
+	
+	@Step 
+	public void selectCheckboxOperation(String textToVerify){
+		freeDaysHistoryPage.checkboxOperation(textToVerify);
+	}
 	
 	@Step
-	public void clickTheAnniversaryCheckbox () {
-		FreeDaysHistoryPage.clickOnAnniversary();
+	public void searchForApplyButton() {
+		freeDaysHistoryPage.applyButton();
 	}
 	
-	@Step
-	public void clickTheOneToFiveCheckBox () {
-		FreeDaysHistoryPage.clickOnOneToFiveCheckbox();
-	}
-	
-	@Step
-	public void clickApplyButton() {
-		FreeDaysHistoryPage.clickApplyButton();
-	}
-	
-	@StepGroup
-	public void clickOnTypeAndDaysNumberCheckbox () {
-		clickTheAnniversaryCheckbox();
-		clickTheOneToFiveCheckBox();
-		clickApplyButton();
-	}
+//	/div.aui-column.aui-w75.aui-column-last span.aui-button-content input.aui-button-input
 }
+	
+	
+	
+
