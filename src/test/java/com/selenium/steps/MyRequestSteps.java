@@ -9,8 +9,18 @@ public class MyRequestSteps {
 	MyRequestPage myRequestsPage;
 
 	@Step
-	public void clickCheckBoxItem(String checkVacationType){
+	public void clickCheckBoxItemVacationType(String checkVacationType){
 		myRequestsPage.checkVacationType(checkVacationType);
+	}
+	
+	@Step
+	public void clickCheckBoxItemDaysNumber(String checkDaysNumber){
+		myRequestsPage.checkDaysNumber(checkDaysNumber);
+	}
+	
+	@Step
+	public void clickCheckBoxItemVacationStatus(String checkvacationStatus){
+		myRequestsPage.checkVacationStatus(checkvacationStatus);
 	}
 	
 	@Step
@@ -20,9 +30,13 @@ public class MyRequestSteps {
 
 	@Step
 	public void findWebElement(String vacationType) {
-		myRequestsPage.searchListItem(vacationType);
+		myRequestsPage.searchTypeItem(vacationType);
 	}
 
+	@Step
+	public void findStatus(String status){
+		myRequestsPage.searchStatus(status);}
+	
 	@Step
 	public void clickOneOrMoreCheckBoxItem(String... vacationTypeNames){
 		myRequestsPage.checkAllItemsVacationType(vacationTypeNames);
