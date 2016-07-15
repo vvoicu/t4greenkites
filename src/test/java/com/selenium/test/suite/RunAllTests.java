@@ -4,7 +4,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
-import com.tests.Test_ContentPage;
+import com.tests.ContentPageTest;
 import com.tests.HeaderNavigationTest;
 import com.tests.LeftMenuClickItemsTest;
 import com.tests.LoginTest;
@@ -14,7 +14,7 @@ import com.tests.LoginTest;
 	LoginTest.class,
 	HeaderNavigationTest.class,
 	LeftMenuClickItemsTest.class,
-	Test_ContentPage.class,
+	ContentPageTest.class,
 	
 })
 public class RunAllTests {
