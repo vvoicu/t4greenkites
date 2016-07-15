@@ -10,11 +10,13 @@ import com.selenium.steps.LoginSteps;
 import com.selenium.steps.MyFreeDaysSteps;
 import com.selenium.steps.NewVacationRequestSteps;
 
+import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import tools.Constants;
 
-@RunWith(SerenityRunner.class)
+@RunWith(SerenityParameterizedRunner.class)
+//@UserTestDataFrom(value=Constants.CSV_FILES_PATH + "NewVacationRequestTest.csv", separator=Constants.CSV_SEPARATOR)
 public class NewVacationRequestTest extends BaseTest {
 
 	@Steps
