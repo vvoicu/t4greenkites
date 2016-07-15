@@ -29,7 +29,7 @@ public class HeaderNavigationTest extends BaseTest{
 	
 	@Test
 	public void performHeaderNavigation(){
-		homeSteps.is_the_home_page();
+		homeSteps.isTheHomePage();
 		homeSteps.starts_searchForSignInButton();
 		userSteps.performLogin(Constants.USERNAME, Constants.PASSWORD);
 		headerNavigationSteps.selectMenuItem();

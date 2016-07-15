@@ -2,52 +2,44 @@ package com.tests;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.openqa.selenium.WebDriver;
 
-import com.selenium.steps.FreeDaysHistoryPageSteps;
 import com.selenium.steps.HeaderNavigationSteps;
 import com.selenium.steps.HomePageSteps;
 import com.selenium.steps.LeftMenuSteps;
 import com.selenium.steps.LoginSteps;
+import com.selenium.steps.MyRequestSteps;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
-import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
 import tools.Constants;
 
 @RunWith(SerenityRunner.class)
-public class Test_FreeDaysHistoryPage {
+public class MyRequestCheckOneItemTest extends BaseTest{
 
-	@Managed(uniqueSession = true)
-	public WebDriver webdriver;
-
+	@Steps
+	public MyRequestSteps myRequestsSteps;
+	
 	@Steps
 	public LoginSteps userSteps;
-
+	
 	@Steps
 	public HomePageSteps home;
-
+	
 	@Steps
 	public HeaderNavigationSteps headerSteps;
-
+	
 	@Steps
 	public LeftMenuSteps leftMenuSteps;
-
-	@Steps
-	public FreeDaysHistoryPageSteps freeDaysHistory;
-	
 	
 	@Test
-	public void checkFreeDaysHistory () {
+	public void findElement(){
 		home.isTheHomePage();
 		home.starts_searchForSignInButton();
 		userSteps.performLogin(Constants.USERNAME, Constants.PASSWORD);
 		headerSteps.selectMenuItem();
-		leftMenuSteps.clickFreeDaysHistory();
-		freeDaysHistory.selectCheckboxType("Vacation days");
-		freeDaysHistory.selectCheckboxOperation("Removed Days");
-		freeDaysHistory.searchForApplyButton();
-		
+		leftMenuSteps.clickMyRequests();
+		myRequestsSteps.clickCheckBoxItem(Constants.VACATIONTYPE_HOLIDAY);
+		myRequestsSteps.clickApplyButton();
+		myRequestsSteps.findWebElement(Constants.VACATIONTYPE_HOLIDAY);
 	}
-
 }

@@ -35,7 +35,7 @@ public class MyFreeDaysTest extends BaseTest {
 
 	@Test
 	public void verifyTheUserFreeDays() {
-		homeSteps.is_the_home_page();
+		homeSteps.isTheHomePage();
 		homeSteps.starts_searchForSignInButton();
 		userSteps.performLogin(Constants.USERNAME, Constants.PASSWORD);
 		headerNavigationSteps.selectMenuItem();

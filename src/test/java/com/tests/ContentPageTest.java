@@ -33,7 +33,6 @@ public class ContentPageTest extends BaseTest{
 	
 	@Test
 	public void createNewVacationRequest() {
-		home.is_the_home_page();
 		home.starts_searchForSignInButton();
 		userSteps.performLogin(Constants.USERNAME, Constants.PASSWORD);
 		headerSteps.selectMenuItem();

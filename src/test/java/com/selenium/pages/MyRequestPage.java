@@ -43,6 +43,24 @@ public class MyRequestPage extends PageObject {
 		Assert.assertTrue("The 'Vacation Type' "+ vacationTypeName +" was not found", found);
 	}
 	
+	//Method for Vacation Type, check random items
+	public void checkAllItemsVacationType(String... vacationTypeNames){
+		for (String name : vacationTypeNames){
+			Boolean found=false;
+			List<WebElement> typeList = vacationType.findElements(By.cssSelector("span[class*='field-content'] label"));
+			for(WebElement listItem:typeList){
+				if(listItem.getText().toLowerCase().contentEquals(name.toLowerCase())){
+					if(!listItem.isSelected())
+					listItem.click();
+					found=true;
+				}
+			}
+			Assert.assertTrue("The 'Vacation Type'"+ name +" was not found", found);
+
+		}
+	}
+	
+	
 	//Methods for "Holiday" Element from Table
 	public void searchListItem(String vacationType){
 		Boolean found=true;
