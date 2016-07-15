@@ -9,8 +9,8 @@ public class FreeDaysHistoryPageSteps {
 	FreeDaysHistoryPage freeDaysHistoryPage;
 
 	@Step
-	public void selectVactionTypeFilter(String textToVerify) {
-		freeDaysHistoryPage.selectVactionTypeFilter(textToVerify);
+	public void selectVactionTypeFilter(String testToVerify) {
+		freeDaysHistoryPage.selectVactionTypeFilter(testToVerify);
 	}
 	
 	@Step 
@@ -23,8 +23,23 @@ public class FreeDaysHistoryPageSteps {
 		freeDaysHistoryPage.clickApplyButton();
 	}
 	
+	@Step
+	public void tableColumnText(String text) {
+		freeDaysHistoryPage.checkListFromTable(text);
+	}
+	
+	@StepGroup()
+	public void filterResults(String type, String operation, String column ){
+		selectVactionTypeFilter(type);
+		selectCheckboxOperation(operation);
+		clickApplyButton();
+		tableColumnText(column);
+		
+	}
+
 }
 	
 	
 	
+
 

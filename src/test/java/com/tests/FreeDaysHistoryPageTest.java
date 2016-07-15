@@ -16,7 +16,7 @@ import net.thucydides.core.annotations.Steps;
 import tools.Constants;
 
 @RunWith(SerenityRunner.class)
-public class Test_FreeDaysHistoryPage {
+public class FreeDaysHistoryPageTest {
 
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
@@ -47,6 +47,7 @@ public class Test_FreeDaysHistoryPage {
 		freeDaysHistory.selectVactionTypeFilter("Vacation days");
 		freeDaysHistory.selectCheckboxOperation("Removed Days");
 		freeDaysHistory.clickApplyButton();
+		freeDaysHistory.tableColumnText("Vacation Days");
 		
 	}
 
