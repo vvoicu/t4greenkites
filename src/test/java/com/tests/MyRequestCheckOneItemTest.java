@@ -14,7 +14,7 @@ import net.thucydides.core.annotations.Steps;
 import tools.Constants;
 
 @RunWith(SerenityRunner.class)
-public class MyRequestTest extends BaseTest{
+public class MyRequestCheckOneItemTest extends BaseTest{
 
 	@Steps
 	public MyRequestSteps myRequestsSteps;
@@ -38,9 +38,8 @@ public class MyRequestTest extends BaseTest{
 		userSteps.performLogin(Constants.USERNAME, Constants.PASSWORD);
 		headerSteps.selectMenuItem();
 		leftMenuSteps.clickMyRequests();
-		myRequestsSteps.clickCheckBoxItem("Holiday");
+		myRequestsSteps.clickCheckBoxItem(Constants.VACATIONTYPE_HOLIDAY);
 		myRequestsSteps.clickApplyButton();
-		myRequestsSteps.findWebElement("Holiday");
+		myRequestsSteps.findWebElement(Constants.VACATIONTYPE_HOLIDAY);
 	}
-	
 }
