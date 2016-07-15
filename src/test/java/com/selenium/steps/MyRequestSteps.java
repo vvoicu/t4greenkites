@@ -23,4 +23,10 @@ public class MyRequestSteps {
 		myRequestsPage.searchListItem(vacationType);
 	}
 
+	@Step
+	public void clickOneOrMoreCheckBoxItem(String... vacationTypeNames){
+		myRequestsPage.checkAllItemsVacationType(vacationTypeNames);
+	}
+	
+	
 }
