@@ -14,12 +14,28 @@ public class NewVacationRequest_ContentPage extends PageObject {
 
 	@FindBy(css = "input[id*='startDate']")
 	private WebElementFacade startDateElement;
+	
+	@FindBy(css = "input[id*='endDate']")
+	private WebElementFacade endDateElement;
 
 	@FindBy(css = "div.Zebra_DatePicker[style*='block']")
 	private WebElementFacade datePicker;
+	
+	@FindBy(css="input[value='Desa']")
+	private WebElementFacade saveButton;
+	
+	@FindBy (css="#createVacation .portlet-msg-error")
+	private WebElementFacade errorMessage;
 
+	public void clickOnSaveButton(){
+		saveButton.click();
+	}
 	public void selectStartDate() {
 		startDateElement.click();
+	}
+	
+	public void selectEndDate() {
+		endDateElement.click();
 	}
 
 	public void clickYear() {
@@ -27,9 +43,10 @@ public class NewVacationRequest_ContentPage extends PageObject {
 		yearElement.click();
 	}
 
-	
 	/**
-	 * Verify if currentYear is the year that you, as a user, want, if not, while cycles will find the currentYear
+	 * Verify if currentYear is the year that you, as a user, want, if not,
+	 * while cycles will find the currentYear
+	 * 
 	 * @param year
 	 */
 	public void selectYear(String year) {
@@ -37,42 +54,73 @@ public class NewVacationRequest_ContentPage extends PageObject {
 		WebElement currentYear = datePicker.findElement(By.cssSelector(".dp_caption"));
 		if (currentYear.getText().contentEquals(year)) {
 			verifyYear = true;
+			System.out.println(Integer.parseInt(currentYear.getText()));
+		}
+		if(Integer.parseInt(year)<Integer.parseInt(currentYear.getText())){
+			Assert.assertTrue("Year not found", verifyYear);
+			
 		}
 		while (!(verifyYear)) {
-			WebElement nextYearButton = datePicker.findElement(By.cssSelector(".dp_next"));
-			nextYearButton.click();
-			WebElement selectedYear = datePicker.findElement(By.cssSelector(".dp_caption"));
-			if (selectedYear.getText().contentEquals(year)) {
-				verifyYear = true;
+				WebElement nextYearButton = datePicker.findElement(By.cssSelector(".dp_next"));
+				nextYearButton.click();
+				WebElement selectedYear = datePicker.findElement(By.cssSelector(".dp_caption"));
+				if (selectedYear.getText().contentEquals(year)) {
+					verifyYear = true;
+				}
+
 			}
-		}
 
 	}
 
 	public void selectMonth(String month) {
+		boolean verifyMonth = false;
 		WebElement selectMonth = datePicker.findElement(By.cssSelector(".dp_monthpicker"));
-		List<WebElement> typeList = selectMonth.findElements(By.cssSelector("td:not(.dp_disabled)"));//select only the active month
+		List<WebElement> typeList = selectMonth.findElements(By.cssSelector("td:not(.dp_disabled)"));// select
+																										// only
+																										// the
+																										// active
+																										// month
 		for (WebElement list : typeList) {
 			System.out.println("Current active months " + list.getText());
 			if (list.getText().contentEquals(month)) {
+				verifyMonth = true;
 				list.click();
 				break;
 			}
+
+		}
+		if (!(verifyMonth)) {
+			Assert.assertTrue("Month not found", verifyMonth);
 		}
 	}
 
 	public void selectDay(String day) {
+		boolean verifyDay = false;
 		WebElement selectDay = datePicker.findElement(By.cssSelector(".dp_daypicker"));
 		List<WebElement> typeDaysList = selectDay.findElements(By.cssSelector(
-				".dp_daypicker td:not(.dp_not_in_month)+td:not(.dp_disabled)+td:not(dp_weekend_disabled)")); //select only the active days
+				"tr td:not(.dp_not_in_month):not(.dp_weekend_disabled)"));
+		
+		
 		for (WebElement daylist : typeDaysList) {
+			System.out.println("days list: "+daylist.getText());	
 			if (daylist.getText().contentEquals(day)) {
+				System.out.println("if day: "+daylist.getText());
+				verifyDay = true;
 				daylist.click();
+				break;
 			}
+		}
+		if (!(verifyDay)) {
+			Assert.assertTrue("Day not found", verifyDay);
 		}
 	}
 	
-	public void waitTenSeconds(){
+	public void verifyTheErrorMessage(String textToVerify){
+		  Assert.assertTrue(errorMessage.getText().contentEquals(textToVerify));
+		
+	}
+
+	public void waitTenSeconds() {
 		waitABit(10000);
 	}
 }

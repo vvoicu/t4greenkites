@@ -7,7 +7,6 @@ import com.selenium.steps.HeaderNavigationSteps;
 import com.selenium.steps.HomePageSteps;
 import com.selenium.steps.LeftMenuSteps;
 import com.selenium.steps.LoginSteps;
-import com.selenium.steps.MyFreeDaysSteps;
 import com.selenium.steps.NewVacationRequestSteps;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
@@ -15,7 +14,7 @@ import net.thucydides.core.annotations.Steps;
 import tools.Constants;
 
 @RunWith(SerenityRunner.class)
-public class NewVacationRequestTest extends BaseTest {
+public class NVR01CreateTwoOverlappedRequestsTest extends BaseTest {
 
 	@Steps
 	public LoginSteps userSteps;
@@ -34,14 +33,18 @@ public class NewVacationRequestTest extends BaseTest {
 
 	public String year = "2016";
 	public String month = "Nov";
-	public String day = "1";
+	public String day = "9";
 
 	public String futureYear = "2016";
 	public String futureMonth = "Nov";
-	public String futureDay = "4";
+	public String futureDay = "11";
+	
+	public String dayTest2 = "10";
 
+	public String futureDayTest2 = "11";
+	
 	@Test
-	public void createAVacationRequest() {
+	public void createTwoOverlappedRequests() {
 		homeSteps.isTheHomePage();
 		homeSteps.starts_searchForSignInButton();
 		userSteps.performLogin(Constants.USERNAME, Constants.PASSWORD);
@@ -54,8 +57,15 @@ public class NewVacationRequestTest extends BaseTest {
 		newVacationSteps.clickYear();
 		newVacationSteps.selectStartDate(futureYear, futureMonth, futureDay);
 		newVacationSteps.clickOnSaveButton();
-		newVacationSteps.waitSeconds();
-		
-
+		headerNavigationSteps.selectMenuItem();
+		leftMenuSteps.clickNewVacationRequest();
+		newVacationSteps.selectStartDateField();
+		newVacationSteps.clickYear();
+		newVacationSteps.selectStartDate(year, month, dayTest2);
+		newVacationSteps.selectEndDateField();
+		newVacationSteps.clickYear();
+		newVacationSteps.selectStartDate(futureYear, futureMonth, futureDayTest2);
+		newVacationSteps.clickOnSaveButton();
+		newVacationSteps.verifyTheErrorMessage("You already have a vacantion set up overlaping the selected time range");
 	}
 }
