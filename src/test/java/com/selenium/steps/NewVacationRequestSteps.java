@@ -14,6 +14,10 @@ public class NewVacationRequestSteps {
 		vacationRequestPage.selectStartDate();
 	}
 	@Step
+	public void selectEndDateField(){
+		vacationRequestPage.selectEndDate();
+	}
+	@Step
 	public void clickYear(){
 		vacationRequestPage.clickYear();
 	}
@@ -44,6 +48,16 @@ public class NewVacationRequestSteps {
 		selectRequestedMonth(month);
 		selectRequestedDay(day);
 		
+	}
+	
+	@Step
+	public void clickOnSaveButton(){
+		vacationRequestPage.clickOnSaveButton();
+	}
+	
+	@Step
+	public void verifyTheErrorMessage(String textToVerify){
+		vacationRequestPage.verifyTheErrorMessage(textToVerify);
 	}
 	
 }
