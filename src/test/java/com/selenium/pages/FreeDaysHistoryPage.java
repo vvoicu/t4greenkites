@@ -19,6 +19,9 @@ public class FreeDaysHistoryPage extends PageObject {
 
 	@FindBy(css = ".aui-column.column-three.aui-column-last")
 	private WebElementFacade filterOperation;
+	
+	@FindBy(css="div.lfr-search-container")
+	private WebElementFacade table;
 
 	public void selectVactionTypeFilter(String checkboxName) {
 		List<WebElement> typeList = filterType.findElements(By.cssSelector("label"));
@@ -42,5 +45,15 @@ public class FreeDaysHistoryPage extends PageObject {
 	public void clickApplyButton() {
 		clickApplyButton.click();
 	}
-
+	
+	public void checkListFromTable(String columnTable) {
+		Boolean found=true;
+		List<WebElement> tableList = table.findElements(By.cssSelector("td.col-2"));
+		for(WebElement list:tableList ){
+			if(list.getText().toLowerCase().contentEquals(columnTable.toLowerCase())){
+				found=false;
+			}
+		}
+			
+	}
 }
