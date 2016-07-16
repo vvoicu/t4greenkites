@@ -38,8 +38,16 @@ public class MyRequestCheckOneItemTest extends BaseTest{
 		userSteps.performLogin(Constants.USERNAME, Constants.PASSWORD);
 		headerSteps.selectMenuItem();
 		leftMenuSteps.clickMyRequests();
-		myRequestsSteps.clickCheckBoxItem(Constants.VACATIONTYPE_HOLIDAY);
+		myRequestsSteps.clickCheckBoxItemVacationType(Constants.VACATIONTYPE_HOLIDAY);
 		myRequestsSteps.clickApplyButton();
 		myRequestsSteps.findWebElement(Constants.VACATIONTYPE_HOLIDAY);
+	
+//		myRequestsSteps.clickCheckBoxItemVacationType(Constants.DAYSNUMBER_1_5);
+//		myRequestsSteps.clickApplyButton();
+		//myRequestsSteps.findWebElement(Constants.DAYSNUMBER_1_5);
+//		
+//		myRequestsSteps.clickCheckBoxItemVacationType("Pending");
+//		myRequestsSteps.clickApplyButton();
+//		myRequestsSteps.findStatus("Pending");
 	}
 }

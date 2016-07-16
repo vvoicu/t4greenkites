@@ -17,22 +17,37 @@ public class MyRequestPage extends PageObject {
 	@FindBy(css = "input[id*='applyButton']")
 	private WebElementFacade applyButton;
 	
-	//Object from Vacation Type
-	@FindBy(css="div[class*='aui-column-content-first column-three-content ']")
+	//Object Vacation Type
+	@FindBy(css="div[class='aui-column-content aui-column-content-first column-three-content ']")
+	
 	private WebElementFacade vacationType;
+	
+	//Object Days Number
+	@FindBy(css="div[class='aui-column-content   column-three-content column-center-content ']")
+	private WebElementFacade daysNumber;
 		
-	//Object "Holiday Element"
+	//Object Vacation Status
+	@FindBy(css="div[class='aui-column-content  aui-column-content-last column-three-content column-center-content ']")
+	private WebElementFacade vacationStatus; 
+	
+//			div[class*='aui-column-content.not(aui-column-content-first )']
+//			div[class*='.not(aui-column-content-first )']
+	
+	
+	//Object Table
 	@FindBy(css = "table.taglib-search-iterator")
 	private WebElementFacade tableMyRequest;
 
+	
+	
 	public void clickApplyButton() {
 		applyButton.click();
 	}
 	
-	//Method for click on checkBox Items from Vacation Type
+	//Method for click on ONE checkBox Item from Vacation Type, Days Number and Vacation Status  
 	public void checkVacationType(String vacationTypeName){
 		Boolean found=false;
-		List<WebElement> typeList = vacationType.findElements(By.cssSelector("span[class*='field-content'] label"));
+		List<WebElement> typeList = vacationType.findElements(By.cssSelector("label.aui-choice-label"));
 		for(WebElement listItem:typeList){
 			if(listItem.getText().toLowerCase().contentEquals(vacationTypeName.toLowerCase())){
 				if(!listItem.isSelected())
@@ -40,10 +55,35 @@ public class MyRequestPage extends PageObject {
 				found=true;
 			}
 		}
-		Assert.assertTrue("The 'Vacation Type' "+ vacationTypeName +" was not found", found);
+		Assert.assertTrue("The 'Vacation Type' Element:"+ vacationTypeName +" was not found", found);
 	}
 	
-	//Method for Vacation Type, check random items
+	public void checkDaysNumber(String daysNumberName){
+		Boolean found=false;
+		List<WebElement> typeList =daysNumber.findElements(By.cssSelector("span[class*='field-content'] label"));
+		for(WebElement listItem:typeList){
+			if(listItem.getText().toLowerCase().contentEquals(daysNumberName.toLowerCase())){
+				if(!listItem.isSelected())
+					listItem.click();
+				found=true;
+			}
+		}
+		Assert.assertTrue("The 'Days Number' Element:"+daysNumberName+"was not found", found);
+	}
+	
+	public void checkVacationStatus(String vacationStatusName){
+		Boolean found=false;
+		List<WebElement> typeList= vacationStatus.findElements(By.cssSelector("span[class*='field-content'] label"));
+		for(WebElement listItem:typeList){
+			if(!listItem.isSelected())
+				listItem.click();
+				found=true;
+		}
+	Assert.assertTrue("The 'Vacation Status' Element: "+vacationStatusName+" was not found", found);		
+	}
+	
+	
+	//Methods for ONE OR MORE checkBox Items from Vacation Type, Days Number and Vacation Status
 	public void checkAllItemsVacationType(String... vacationTypeNames){
 		for (String name : vacationTypeNames){
 			Boolean found=false;
@@ -59,17 +99,28 @@ public class MyRequestPage extends PageObject {
 
 		}
 	}
-	
-	
-	//Methods for "Holiday" Element from Table
-	public void searchListItem(String vacationType){
+		
+	//Methods for "TYPE" Element from Table
+	public void searchTypeItem(String vacationType){
 		Boolean found=true;
-		List<WebElement> typeList = tableMyRequest.findElements(By.cssSelector("td.col-4"));
+		List<WebElement> typeList = tableMyRequest.findElements(By.cssSelector("td[class='align-left col-4 col-my.request.column.header.type  valign-middle']"));
 		for(WebElement list:typeList ){
-			if(!list.getText().contentEquals(vacationType)){
+			if(!list.getText().toLowerCase().contentEquals(vacationType)){
 				found=false;
 			}
 		}
 		Assert.assertTrue("The 'Type' from table"+ vacationType+ "was not found", found);
 	}
+	
+	//Methods for "TYPE" Element from Table
+		public void searchStatus(String vacationType){
+			Boolean found=true;
+			List<WebElement> typeList = tableMyRequest.findElements(By.cssSelector("td.col-6"));
+			for(WebElement list:typeList ){
+				if(!list.getText().toLowerCase().contentEquals(vacationType)){
+					found=false;
+				}
+			}
+			Assert.assertTrue("The 'Type' from table"+ vacationType+ "was not found", found);
+		}
 }
