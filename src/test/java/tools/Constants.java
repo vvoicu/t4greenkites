@@ -25,4 +25,7 @@ public class Constants {
 	public static final String VACATIONSTATUS_REJECTED="Rejected";
 	public static final String VACATIONSTATUS_WITHDRAWN="Withdrawn";
 	public static final String VACATIONSTATUS_CANCELLED="Cancelled";
+	
+	public static final char CSV_SEPARATOR = ',';
+	public static final String CSV_FILES_PATH = "/evoportal/csv/";
 }

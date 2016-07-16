@@ -9,11 +9,14 @@ import com.selenium.steps.LeftMenuSteps;
 import com.selenium.steps.LoginSteps;
 import com.selenium.steps.MyRequestSteps;
 
-import net.serenitybdd.junit.runners.SerenityRunner;
+import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
 import net.thucydides.core.annotations.Steps;
+import net.thucydides.junit.annotations.UseTestDataFrom;
 import tools.Constants;
 
-@RunWith(SerenityRunner.class)
+
+@RunWith(SerenityParameterizedRunner.class)
+@UseTestDataFrom(value=Constants.CSV_FILES_PATH + "MyRequestFilterRequests.csv", separator = Constants.CSV_SEPARATOR)
 public class MyRequestCheckOneItemTest extends BaseTest{
 
 	@Steps
@@ -31,6 +34,10 @@ public class MyRequestCheckOneItemTest extends BaseTest{
 	@Steps
 	public LeftMenuSteps leftMenuSteps;
 	
+	public String vacationType; 
+	public String daysNumber;
+	public String vacationStatus;
+	
 	@Test
 	public void findElement(){
 		home.isTheHomePage();
@@ -38,16 +45,16 @@ public class MyRequestCheckOneItemTest extends BaseTest{
 		userSteps.performLogin(Constants.USERNAME, Constants.PASSWORD);
 		headerSteps.selectMenuItem();
 		leftMenuSteps.clickMyRequests();
-		myRequestsSteps.clickCheckBoxItemVacationType(Constants.VACATIONTYPE_HOLIDAY);
+		myRequestsSteps.clickCheckBoxItemVacationType(vacationType);
 		myRequestsSteps.clickApplyButton();
-		myRequestsSteps.findWebElement(Constants.VACATIONTYPE_HOLIDAY);
+	//myRequestsSteps.findWebElement(Constants.VACATIONTYPE_HOLIDAY);
 	
-//		myRequestsSteps.clickCheckBoxItemVacationType(Constants.DAYSNUMBER_1_5);
-//		myRequestsSteps.clickApplyButton();
-		//myRequestsSteps.findWebElement(Constants.DAYSNUMBER_1_5);
-//		
-//		myRequestsSteps.clickCheckBoxItemVacationType("Pending");
-//		myRequestsSteps.clickApplyButton();
-//		myRequestsSteps.findStatus("Pending");
+		myRequestsSteps.clickCheckBoxItemDaysNumber(daysNumber);
+		myRequestsSteps.clickApplyButton();
+	//	myRequestsSteps.findWebElement(Constants.DAYSNUMBER_1_5);
+		
+		myRequestsSteps.clickCheckBoxItemVacationStatus(vacationStatus);
+		myRequestsSteps.clickApplyButton();
+	//	myRequestsSteps.findStatus("Constants.VACATIONSTATUS_PENDING");
 	}
 }

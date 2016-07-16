@@ -75,9 +75,11 @@ public class MyRequestPage extends PageObject {
 		Boolean found=false;
 		List<WebElement> typeList= vacationStatus.findElements(By.cssSelector("span[class*='field-content'] label"));
 		for(WebElement listItem:typeList){
-			if(!listItem.isSelected())
-				listItem.click();
+			if(listItem.getText().toLowerCase().contentEquals(vacationStatusName.toLowerCase())){
+				if(!listItem.isSelected())
+						listItem.click();
 				found=true;
+			}
 		}
 	Assert.assertTrue("The 'Vacation Status' Element: "+vacationStatusName+" was not found", found);		
 	}
