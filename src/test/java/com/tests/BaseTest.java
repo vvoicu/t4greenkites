@@ -8,6 +8,7 @@ import java.io.OutputStream;
 import java.util.Properties;
 
 import org.junit.After;
+
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 
@@ -15,6 +16,7 @@ import net.thucydides.core.annotations.Managed;
 import tools.Constants;
 
 public class BaseTest {
+
 
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
@@ -54,3 +56,4 @@ public class BaseTest {
 	}
 
 }
+
