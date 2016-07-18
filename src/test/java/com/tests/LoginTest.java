@@ -23,7 +23,7 @@ public class LoginTest extends BaseTest{
 	public void loginSimpleUser() {
 		homeSteps.isTheHomePage();
 		homeSteps.starts_searchForSignInButton();
-		userSteps.performLogin(Constants.USERNAME, Constants.PASSWORD);
+		userSteps.performLogin(userName, password);
 		userSteps.verifyIfUserIsLoggedIn("VACATION");
 	}
 }

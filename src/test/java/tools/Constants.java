@@ -8,4 +8,5 @@ public class Constants {
 	public static final char CSV_SEPARATOR = ',';
 	public static final String CSV_FILES_PATH = "/evoportal/csv/";
 
+	public static final String CONFIG_PATH="/config.properties";
 }
