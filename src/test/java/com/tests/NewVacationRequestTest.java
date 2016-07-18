@@ -1,5 +1,7 @@
 package com.tests;
 
+import java.util.Properties;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -9,13 +11,14 @@ import com.selenium.steps.LeftMenuSteps;
 import com.selenium.steps.LoginSteps;
 import com.selenium.steps.NewVacationRequestSteps;
 
+import java.io.InputStream;
 import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.junit.annotations.UseTestDataFrom;
 import tools.Constants;
 
 @RunWith(SerenityParameterizedRunner.class)
-@UseTestDataFrom(value=Constants.CSV_FILES_PATH + "NewVacationRequestTest.csv", separator = Constants.CSV_SEPARATOR)
+@UseTestDataFrom(value = Constants.CSV_FILES_PATH + "NewVacationRequestTest.csv", separator = Constants.CSV_SEPARATOR)
 public class NewVacationRequestTest extends BaseTest {
 
 	@Steps
@@ -33,7 +36,9 @@ public class NewVacationRequestTest extends BaseTest {
 	@Steps
 	public NewVacationRequestSteps newVacationSteps;
 
+
 	public String year, month, day, futureYear, futureMonth, futureDay, vacationTypeName, specialVacationName;
+    
 
 	@Test
 	public void createAVacationRequest() {
