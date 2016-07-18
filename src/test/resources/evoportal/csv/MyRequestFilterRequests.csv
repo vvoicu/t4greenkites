@@ -1,0 +1,7 @@
+vacationType,daysNumber,vacationStatus
+ALL,ALL,ALL
+Holiday,1 - 5,Pending
+Vacation Without Payment,6 - 10,Approved
+Special Vacation,11 - 20,Rejected
+Sick Leave,11 - 20,Withdrawn
+Maternity Leave,51 +,Cancelled

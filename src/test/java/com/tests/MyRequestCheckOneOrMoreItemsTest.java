@@ -38,7 +38,7 @@ public class MyRequestCheckOneOrMoreItemsTest extends BaseTest{
 		userSteps.performLogin(Constants.USERNAME, Constants.PASSWORD);
 		headerSteps.selectMenuItem();
 		leftMenuSteps.clickMyRequests();
-		myRequestsSteps.clickOneOrMoreCheckBoxItem(Constants.VACATIONTYPE_HOLIDAY,Constants.VACATIONTYPE_VACATION, Constants.VACATIONTYPE_SPECIALVACATION, Constants.VACATIONTYPE_SICKLEAVE, Constants.VACATIONTYPE_MATERNITY);
+	//myRequestsSteps.clickOneOrMoreCheckBoxItem(Constants.VACATIONTYPE_HOLIDAY,Constants.VACATIONTYPE_VACATION, Constants.VACATIONTYPE_SPECIALVACATION, Constants.VACATIONTYPE_SICKLEAVE, Constants.VACATIONTYPE_MATERNITY);
 		myRequestsSteps.clickApplyButton();
 	}
 }
