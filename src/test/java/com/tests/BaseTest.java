@@ -1,62 +1,55 @@
 package com.tests;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.Properties;
+
+import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Properties;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Properties;
 
 import net.thucydides.core.annotations.Managed;
 import tools.Constants;
 
 public class BaseTest {
 
-    @Managed(uniqueSession = true)
-    public WebDriver webdriver;
-    
+	@Managed(uniqueSession = true)
+	public WebDriver webdriver;
 
-    public String url;
-    public String userName;
-    public String password;
-    
-    @Before
-    public void dataSetup(){
-    	 Properties prop = new Properties();
-    	  InputStream input = null;
-    	  
-    	  try {
+	public String url;
+	public String userName;
+	public String password;
 
-    		   input = new FileInputStream(Constants.CONFIG_PATH);
+	@Before
+	public void dataSetup() throws IOException {
+		Properties prop = new Properties();
+		InputStream input = null;
 
-    		   // load a properties file
-    		   prop.load(input);
-    		   
-    		   url = prop.getProperty("url");
-    		   userName = prop.getProperty("userName");
-    		   password = prop.getProperty("password");
-    		   
-    		//   // get the property value and print it out
-    		   System.out.println(prop.getProperty("url"));
-    		   System.out.println(prop.getProperty("userName"));
-    		   System.out.println(prop.getProperty("password"));
+		input = new FileInputStream(Constants.CONFIG_PATH);
 
-    		  } catch (IOException ex) {
-    		   ex.printStackTrace();
-    		  } finally {
-    		   if (input != null) {
-    		    try {
-    		     input.close();
-    		    } catch (IOException e) {
-    		     e.printStackTrace();
-    		    }
-    		   }
-    		  }
-    	}
-    
-   }
+		// load a properties file
+		prop.load(input);
 
+		url = prop.getProperty("url");
+		userName = prop.getProperty("userName");
+		password = prop.getProperty("password");
+
+	}
+
+	@After
+	public void verifyIfUserIsLoggedIn() throws IOException {
+		Properties prop2 = new Properties();
+		OutputStream output = null;
+
+		output = new FileOutputStream(getClass().getSimpleName() + ".properties");
+
+		prop2.setProperty("topMenuItemName: ", "Vacation");
+
+		prop2.store(output, null);
+
+	}
+
+}

@@ -39,7 +39,8 @@ public class NewVacationRequest_ContentPage extends PageObject {
 	
 	public void selectSpecialVacation(String specialVacationType){
 		if(specialVacationDropdown.isDisplayed()){
-			specialVacationDropdown.selectByVisibleText(specialVacationType);
+			specialVacationDropdown.selectByVisibleText(specialVacationType).click();
+			
 		}
 	}
 	
