@@ -47,14 +47,14 @@ public class MyRequestCheckOneItemTest extends BaseTest{
 		leftMenuSteps.clickMyRequests();
 		myRequestsSteps.clickCheckBoxItemVacationType(vacationType);
 		myRequestsSteps.clickApplyButton();
-	//myRequestsSteps.findWebElement(Constants.VACATIONTYPE_HOLIDAY);
+	    myRequestsSteps.findWebElement(vacationType);
 	
 		myRequestsSteps.clickCheckBoxItemDaysNumber(daysNumber);
 		myRequestsSteps.clickApplyButton();
-	//	myRequestsSteps.findWebElement(Constants.DAYSNUMBER_1_5);
-		
+//	//	myRequestsSteps.findWebElement(Constants.DAYSNUMBER_1_5);
+//		
 		myRequestsSteps.clickCheckBoxItemVacationStatus(vacationStatus);
 		myRequestsSteps.clickApplyButton();
-	//	myRequestsSteps.findStatus("Constants.VACATIONSTATUS_PENDING");
+		myRequestsSteps.findStatus(vacationStatus);
 	}
 }
