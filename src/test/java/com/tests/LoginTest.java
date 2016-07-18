@@ -8,10 +8,9 @@ import com.selenium.steps.LoginSteps;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
-import tools.Constants;
 
 @RunWith(SerenityRunner.class)
-public class LoginTest extends BaseTest{
+public class LoginTest extends BaseTest {
 
 	@Steps
 	public LoginSteps userSteps;
@@ -23,7 +22,7 @@ public class LoginTest extends BaseTest{
 	public void loginSimpleUser() {
 		homeSteps.isTheHomePage();
 		homeSteps.starts_searchForSignInButton();
-		userSteps.performLogin(Constants.USERNAME, Constants.PASSWORD);
+		userSteps.performLogin(userName, password);
 		userSteps.verifyIfUserIsLoggedIn("VACATION");
 	}
 }

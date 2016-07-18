@@ -42,19 +42,19 @@ public class MyRequestCheckOneItemTest extends BaseTest{
 	public void findElement(){
 		home.isTheHomePage();
 		home.starts_searchForSignInButton();
-		userSteps.performLogin(Constants.USERNAME, Constants.PASSWORD);
+		userSteps.performLogin(userName,password);
 		headerSteps.selectMenuItem();
 		leftMenuSteps.clickMyRequests();
 		myRequestsSteps.clickCheckBoxItemVacationType(vacationType);
 		myRequestsSteps.clickApplyButton();
-	//myRequestsSteps.findWebElement(Constants.VACATIONTYPE_HOLIDAY);
+	    myRequestsSteps.findWebElement(vacationType);
 	
 		myRequestsSteps.clickCheckBoxItemDaysNumber(daysNumber);
 		myRequestsSteps.clickApplyButton();
-	//	myRequestsSteps.findWebElement(Constants.DAYSNUMBER_1_5);
-		
+//	//	myRequestsSteps.findWebElement(Constants.DAYSNUMBER_1_5);
+//		
 		myRequestsSteps.clickCheckBoxItemVacationStatus(vacationStatus);
 		myRequestsSteps.clickApplyButton();
-	//	myRequestsSteps.findStatus("Constants.VACATIONSTATUS_PENDING");
+		myRequestsSteps.findStatus(vacationStatus);
 	}
 }

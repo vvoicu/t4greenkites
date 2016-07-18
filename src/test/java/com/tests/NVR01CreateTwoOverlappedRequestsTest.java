@@ -47,7 +47,7 @@ public class NVR01CreateTwoOverlappedRequestsTest extends BaseTest {
 	public void createTwoOverlappedRequests() {
 		homeSteps.isTheHomePage();
 		homeSteps.starts_searchForSignInButton();
-		userSteps.performLogin(Constants.USERNAME, Constants.PASSWORD);
+		userSteps.performLogin(userName, password);
 		headerNavigationSteps.selectMenuItem();
 		leftMenuSteps.clickNewVacationRequest();
 		newVacationSteps.selectStartDateField();

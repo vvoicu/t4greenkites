@@ -7,16 +7,15 @@ import com.selenium.steps.HeaderNavigationSteps;
 import com.selenium.steps.HomePageSteps;
 import com.selenium.steps.LeftMenuSteps;
 import com.selenium.steps.LoginSteps;
-import com.selenium.steps.MyFreeDaysSteps;
 import com.selenium.steps.NewVacationRequestSteps;
 
 import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
-import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
+import net.thucydides.junit.annotations.UseTestDataFrom;
 import tools.Constants;
 
 @RunWith(SerenityParameterizedRunner.class)
-//@UserTestDataFrom(value=Constants.CSV_FILES_PATH + "NewVacationRequestTest.csv", separator=Constants.CSV_SEPARATOR)
+@UseTestDataFrom(value = Constants.CSV_FILES_PATH + "NewVacationRequestTest.csv", separator = Constants.CSV_SEPARATOR)
 public class NewVacationRequestTest extends BaseTest {
 
 	@Steps
@@ -34,19 +33,13 @@ public class NewVacationRequestTest extends BaseTest {
 	@Steps
 	public NewVacationRequestSteps newVacationSteps;
 
-	public String year = "2016";
-	public String month = "Nov";
-	public String day = "1";
-
-	public String futureYear = "2016";
-	public String futureMonth = "Nov";
-	public String futureDay = "4";
+	public String year, month, day, futureYear, futureMonth, futureDay, vacationTypeName, specialVacationName;
 
 	@Test
 	public void createAVacationRequest() {
 		homeSteps.isTheHomePage();
 		homeSteps.starts_searchForSignInButton();
-		userSteps.performLogin(Constants.USERNAME, Constants.PASSWORD);
+		userSteps.performLogin(userName, password);
 		headerNavigationSteps.selectMenuItem();
 		leftMenuSteps.clickNewVacationRequest();
 		newVacationSteps.selectStartDateField();
@@ -55,9 +48,11 @@ public class NewVacationRequestTest extends BaseTest {
 		newVacationSteps.selectEndDateField();
 		newVacationSteps.clickYear();
 		newVacationSteps.selectStartDate(futureYear, futureMonth, futureDay);
+		newVacationSteps.selectVacationType(vacationTypeName);
+		newVacationSteps.clickOnDropDown();
+		newVacationSteps.selectSpecialVacation(specialVacationName);
 		newVacationSteps.clickOnSaveButton();
 		newVacationSteps.waitSeconds();
-		
 
 	}
 }

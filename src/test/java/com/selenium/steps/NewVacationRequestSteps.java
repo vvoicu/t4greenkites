@@ -60,4 +60,19 @@ public class NewVacationRequestSteps {
 		vacationRequestPage.verifyTheErrorMessage(textToVerify);
 	}
 	
+	@Step
+	public void selectVacationType(String vacationTypeName){
+		vacationRequestPage.selectVacationType(vacationTypeName);
+	}
+	
+	@Step 
+	public void selectSpecialVacation(String specialVacationType){
+		vacationRequestPage.selectSpecialVacation(specialVacationType);
+	}
+	
+	@Step
+	public void clickOnDropDown(){
+		vacationRequestPage.clickOnDropDown();
+	}
+	
 }

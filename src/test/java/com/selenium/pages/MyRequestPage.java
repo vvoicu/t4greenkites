@@ -105,7 +105,7 @@ public class MyRequestPage extends PageObject {
 	//Methods for "TYPE" Element from Table
 	public void searchTypeItem(String vacationType){
 		Boolean found=true;
-		List<WebElement> typeList = tableMyRequest.findElements(By.cssSelector("td[class='align-left col-4 col-my.request.column.header.type  valign-middle']"));
+		List<WebElement> typeList = tableMyRequest.findElements(By.cssSelector("align-left col-4 col-my.request.column.header.type valign-middle"));
 		for(WebElement list:typeList ){
 			if(!list.getText().toLowerCase().contentEquals(vacationType)){
 				found=false;
@@ -114,10 +114,10 @@ public class MyRequestPage extends PageObject {
 		Assert.assertTrue("The 'Type' from table"+ vacationType+ "was not found", found);
 	}
 	
-	//Methods for "TYPE" Element from Table
+	//Methods for "STATUS" Element from Table
 		public void searchStatus(String vacationType){
 			Boolean found=true;
-			List<WebElement> typeList = tableMyRequest.findElements(By.cssSelector("td.col-6"));
+			List<WebElement> typeList = tableMyRequest.findElements(By.cssSelector("align-left col-6 col-my.request.column.header.status last valign-middle"));
 			for(WebElement list:typeList ){
 				if(!list.getText().toLowerCase().contentEquals(vacationType)){
 					found=false;
