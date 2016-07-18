@@ -1,5 +1,7 @@
 package com.selenium.steps;
 
+import java.util.List;
+
 import com.selenium.pages.LoginPage;
 
 import net.thucydides.core.annotations.Step;
@@ -39,6 +41,11 @@ public class LoginSteps {
 	@Step
 	public void verifyIfUserIsLoggedIn(String vacationElementText) {
 		evoportalLoginPage.assertText(vacationElementText);
+	}
+	
+	@Step
+	public List<String> getMenuItem(){
+		return evoportalLoginPage.getMenuItem();
 	}
 
 	@StepGroup
