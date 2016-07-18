@@ -1,7 +1,5 @@
 package com.tests;
 
-import java.util.Properties;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -11,7 +9,6 @@ import com.selenium.steps.LeftMenuSteps;
 import com.selenium.steps.LoginSteps;
 import com.selenium.steps.NewVacationRequestSteps;
 
-import java.io.InputStream;
 import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.junit.annotations.UseTestDataFrom;
@@ -36,15 +33,13 @@ public class NewVacationRequestTest extends BaseTest {
 	@Steps
 	public NewVacationRequestSteps newVacationSteps;
 
-
 	public String year, month, day, futureYear, futureMonth, futureDay, vacationTypeName, specialVacationName;
-    
 
 	@Test
 	public void createAVacationRequest() {
 		homeSteps.isTheHomePage();
 		homeSteps.starts_searchForSignInButton();
-		userSteps.performLogin(Constants.USERNAME, Constants.PASSWORD);
+		userSteps.performLogin(userName, password);
 		headerNavigationSteps.selectMenuItem();
 		leftMenuSteps.clickNewVacationRequest();
 		newVacationSteps.selectStartDateField();
@@ -58,7 +53,6 @@ public class NewVacationRequestTest extends BaseTest {
 		newVacationSteps.selectSpecialVacation(specialVacationName);
 		newVacationSteps.clickOnSaveButton();
 		newVacationSteps.waitSeconds();
-		
 
 	}
 }
