@@ -8,7 +8,6 @@ import com.selenium.steps.LoginSteps;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
-import tools.Constants;
 
 @RunWith(SerenityRunner.class)
 public class LoginTest extends BaseTest{
