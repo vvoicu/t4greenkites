@@ -8,6 +8,7 @@ import java.io.OutputStream;
 import java.util.Properties;
 
 import org.junit.After;
+
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 
@@ -15,6 +16,7 @@ import net.thucydides.core.annotations.Managed;
 import tools.Constants;
 
 public class BaseTest {
+
 
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
@@ -42,14 +44,16 @@ public class BaseTest {
 	@After
 	public void verifyIfUserIsLoggedIn() throws IOException {
 		Properties prop2 = new Properties();
-		OutputStream output = null;
+		InputStream input = null;
+		String listItemName = "";
 
-		output = new FileOutputStream(getClass().getSimpleName() + ".properties");
+		input = new FileInputStream("menuItem.properties");
+		prop2.load(input);
 
-		prop2.setProperty("topMenuItemName: ", "Vacation");
-
-		prop2.store(output, null);
-
+		listItemName=prop2.getProperty("topMenuItemName");
+		
+		System.out.println(listItemName);
 	}
 
 }
+

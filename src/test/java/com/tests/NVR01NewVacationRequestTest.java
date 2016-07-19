@@ -16,7 +16,7 @@ import tools.Constants;
 
 @RunWith(SerenityParameterizedRunner.class)
 @UseTestDataFrom(value = Constants.CSV_FILES_PATH + "NewVacationRequestTest.csv", separator = Constants.CSV_SEPARATOR)
-public class NewVacationRequestTest extends BaseTest {
+public class NVR01NewVacationRequestTest extends BaseTest {
 
 	@Steps
 	public LoginSteps userSteps;
@@ -49,7 +49,6 @@ public class NewVacationRequestTest extends BaseTest {
 		newVacationSteps.clickYear();
 		newVacationSteps.selectStartDate(futureYear, futureMonth, futureDay);
 		newVacationSteps.selectVacationType(vacationTypeName);
-		newVacationSteps.clickOnDropDown();
 		newVacationSteps.selectSpecialVacation(specialVacationName);
 		newVacationSteps.clickOnSaveButton();
 		newVacationSteps.waitSeconds();
