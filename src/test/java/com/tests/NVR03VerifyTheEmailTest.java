@@ -1,7 +1,9 @@
 package com.tests;
 
+import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import com.selenium.steps.EmailVerificationSteps;
 import com.selenium.steps.HeaderNavigationSteps;
 import com.selenium.steps.HomePageSteps;
 import com.selenium.steps.LeftMenuSteps;
@@ -31,26 +33,29 @@ public class NVR03VerifyTheEmailTest extends BaseTest {
 
 	@Steps
 	public NewVacationRequestSteps newVacationSteps;
+	
+	@Steps
+	public EmailVerificationSteps email;
 
 	public String year, month, day, futureYear, futureMonth, futureDay, vacationTypeName, specialVacationName;
-	
+	@Test
 	public void verifyTheEmail(){
 		homeSteps.isTheHomePage();
-		homeSteps.starts_searchForSignInButton();
+		homeSteps.clickOnSignInButton();
 		userSteps.performLogin(userName, password);
-		headerNavigationSteps.selectMenuItem();
+		headerNavigationSteps.selectVacationMenuItem();
 		leftMenuSteps.clickNewVacationRequest();
 		newVacationSteps.selectStartDateField();
-		newVacationSteps.clickYear();
-		newVacationSteps.selectStartDate(year, month, day);
+		newVacationSteps.clickOnTheDateFieldCaption();
+		newVacationSteps.selectDate(year, month, day);
 		newVacationSteps.selectEndDateField();
-		newVacationSteps.clickYear();
-		newVacationSteps.selectStartDate(futureYear, futureMonth, futureDay);
+		newVacationSteps.clickOnTheDateFieldCaption();
+		newVacationSteps.selectDate(futureYear, futureMonth, futureDay);
 		newVacationSteps.selectVacationType(vacationTypeName);
 		newVacationSteps.selectSpecialVacation(specialVacationName);
 		newVacationSteps.clickOnSaveButton();
+		email.checkEmailSubject(Constants.EMAILSUBJECT);
 		
-		newVacationSteps.waitSeconds();
 
 	}
 }

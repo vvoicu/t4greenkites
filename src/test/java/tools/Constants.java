@@ -4,6 +4,8 @@ public class Constants {
 
 	public static final String USERNAME = "cornelia.bodea";
 	public static final String PASSWORD = "test";
+	
+	public static final String EMAILSUBJECT="You have submitted a new Vacation Request";
 
 	public static final char CSV_SEPARATOR = ',';
 	public static final String CSV_FILES_PATH = "/evoportal/csv/";
