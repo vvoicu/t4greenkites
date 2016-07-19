@@ -42,5 +42,19 @@ public class MyRequestSteps {
 		myRequestsPage.checkAllItemsVacationType(vacationTypeNames);
 	}
 	
+	@Step
+	public void getDaysNumberFirstNumber(String dateFilter){
+		myRequestsPage.getFirstNumber(dateFilter);
+	}
+	
+	@Step
+	public void getDaysNumberLastNumber(String dateFilter){
+		myRequestsPage.getLastNumber(dateFilter);
+	}
+	
+	@Step
+	public void getDaysNumbercompareNumbers(){
+		myRequestsPage.compareNumbers();
+	}
 	
 }
