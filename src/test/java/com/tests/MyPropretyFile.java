@@ -10,8 +10,9 @@ public class MyPropretyFile extends BaseTestFile {
 	@Test
 	public void readMyRequestsPropretyTest() {
 
+		System.out.println("password:" + password);
 		System.out.println("userName:" + userName);
-		System.out.println("userPassword:" + userPassword);
+		
 		
 	}
 
