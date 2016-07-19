@@ -66,8 +66,8 @@ public class NewVacationRequestSteps {
 	}
 	
 	@Step 
-	public void selectSpecialVacation(String specialVacationType){
-		vacationRequestPage.selectSpecialVacation(specialVacationType);
+	public void selectSpecialVacation(String specialVacationName){
+		vacationRequestPage.selectSpecialVacation(specialVacationName);
 	}
 	
 	@Step

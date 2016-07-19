@@ -17,7 +17,7 @@ import tools.Constants;
 
 @RunWith(SerenityParameterizedRunner.class)
 @UseTestDataFrom(value=Constants.CSV_FILES_PATH + "MyRequestFilterRequests.csv", separator = Constants.CSV_SEPARATOR)
-public class MyRequestCheckOneItemTest extends BaseTest{
+public class MyRequestCheckOneItemFilterOptionTest extends BaseTest{
 
 	@Steps
 	public MyRequestSteps myRequestsSteps;
@@ -38,6 +38,8 @@ public class MyRequestCheckOneItemTest extends BaseTest{
 	public String daysNumber;
 	public String vacationStatus;
 	
+	
+	
 	@Test
 	public void findElement(){
 		home.isTheHomePage();
@@ -51,8 +53,7 @@ public class MyRequestCheckOneItemTest extends BaseTest{
 	
 		myRequestsSteps.clickCheckBoxItemDaysNumber(daysNumber);
 		myRequestsSteps.clickApplyButton();
-//	//	myRequestsSteps.findWebElement(Constants.DAYSNUMBER_1_5);
-//		
+				
 		myRequestsSteps.clickCheckBoxItemVacationStatus(vacationStatus);
 		myRequestsSteps.clickApplyButton();
 		myRequestsSteps.findStatus(vacationStatus);

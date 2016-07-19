@@ -1,20 +1,18 @@
 package com.tests;
 
-import java.io.IOException;
-
-import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import com.selenium.steps.HomePageSteps;
 import com.selenium.steps.LoginSteps;
+import com.selenium.steps.LogoutSteps;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import tools.FileOutputStreamTopMenuItem;
 
 @RunWith(SerenityRunner.class)
-public class LoginTest extends BaseTest {
+public class LogoutTest extends BaseTest {
 
 	@Steps
 	public LoginSteps userSteps;
@@ -22,18 +20,21 @@ public class LoginTest extends BaseTest {
 	@Steps
 	public HomePageSteps homeSteps;
 	
+	@Steps
+	public LogoutSteps logoutSteps;
+	
 	public FileOutputStreamTopMenuItem topMenuItem;
-
+	
+	public String userOption="Surt";
+	
 	@Test
-	public void loginSimpleUser() {
+	public void logout(){
 		homeSteps.isTheHomePage();
 		homeSteps.starts_searchForSignInButton();
 		userSteps.performLogin(userName, password);
-		userSteps.verifyIfUserIsLoggedIn("VACATION");
+		logoutSteps.clickOnUserIdentifier(userOption);
+		
+
 	}
 	
-	@After
-	public void writeMenuItem() throws IOException{
-		topMenuItem.writeMenuItem();
-	}
 }

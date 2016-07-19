@@ -1,5 +1,8 @@
 package com.selenium.pages;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -19,6 +22,9 @@ public class LoginPage extends PageObject {
 	@FindBy(css = "input[class*='button-input-submit']")
 	private WebElementFacade loginButton;
 
+	@FindBy(css = ".main-menu")
+	private WebElementFacade topMenuList;
+
 	public void enter_username(String name) {
 		userNameInput.type(name);
 	}
@@ -31,8 +37,18 @@ public class LoginPage extends PageObject {
 		loginButton.click();
 	}
 
-	public void assertText(String textToVerify){
-		  WebElement elementVacationText = getDriver().findElement(By.cssSelector(".main-menu li:nth-child(9) a>span"));
-		  Assert.assertTrue(elementVacationText.getText().contentEquals(textToVerify));
-		 }
+	public void assertText(String textToVerify) {
+		WebElement elementVacationText = getDriver().findElement(By.cssSelector(".main-menu li:nth-child(9) a>span"));
+		Assert.assertTrue(elementVacationText.getText().contentEquals(textToVerify));
+	}
+
+	public List<String> getMenuItem() {
+		List<String> listMenuName = new ArrayList();
+		List<WebElement> listMenuItem = topMenuList.findElements(By.cssSelector("li"));
+		for (WebElement i : listMenuItem) {
+
+			listMenuName.add(i.getText());
+		}
+		return listMenuName;
+	}
 }
