@@ -14,10 +14,10 @@ import net.thucydides.core.annotations.Steps;
 import net.thucydides.junit.annotations.UseTestDataFrom;
 import tools.Constants;
 
-
 @RunWith(SerenityParameterizedRunner.class)
 @UseTestDataFrom(value=Constants.CSV_FILES_PATH + "MyRequestFilterRequests.csv", separator = Constants.CSV_SEPARATOR)
-public class MyRequestCheckOneItemFilterOptionTest extends BaseTest{
+
+public class MR01ClickOneVacationTypeElemenentTest extends BaseTest{
 
 	@Steps
 	public MyRequestSteps myRequestsSteps;
@@ -34,28 +34,16 @@ public class MyRequestCheckOneItemFilterOptionTest extends BaseTest{
 	@Steps
 	public LeftMenuSteps leftMenuSteps;
 	
-	public String vacationType; 
-	public String daysNumber;
-	public String vacationStatus;
-	
-	
+	public String vacationType;
 	
 	@Test
-	public void findElement(){
+	public void clickRandomElement(){
 		home.isTheHomePage();
 		home.starts_searchForSignInButton();
 		userSteps.performLogin(userName,password);
 		headerSteps.selectMenuItem();
 		leftMenuSteps.clickMyRequests();
-		myRequestsSteps.clickCheckBoxItemVacationType(vacationType);
+		myRequestsSteps.clickOneOrMoreCheckBoxItem(vacationType);
 		myRequestsSteps.clickApplyButton();
-	    myRequestsSteps.findWebElement(vacationType);
-	
-		myRequestsSteps.clickCheckBoxItemDaysNumber(daysNumber);
-		myRequestsSteps.clickApplyButton();
-				
-		myRequestsSteps.clickCheckBoxItemVacationStatus(vacationStatus);
-		myRequestsSteps.clickApplyButton();
-		myRequestsSteps.findStatus(vacationStatus);
 	}
 }

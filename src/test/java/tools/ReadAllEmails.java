@@ -10,7 +10,7 @@ import javax.mail.NoSuchProviderException;
 import java.util.Properties;
 import javax.mail.BodyPart;
 
-public class ReadEmails {
+public class ReadAllEmails {
 
 	//   private static final Message Message = null;
 
@@ -34,34 +34,19 @@ public class ReadEmails {
 	      //create the folder object and open it
 	      Folder emailFolder = store.getFolder("INBOX");
 	      emailFolder.open(Folder.READ_ONLY);
-
-	      int messageNumbers=0;
-	      messageNumbers=emailFolder.getMessageCount();
-	      
-	      System.out.println("YOU HAVE:"+ messageNumbers);
-	      Message lastMessage = emailFolder.getMessage(messageNumbers);
-	      
-	      
+ 
 	      // retrieve the messages from the folder in an array and print it
 	      Message[] messages = emailFolder.getMessages();
-	      System.out.println("messages.length---" + messages.length);
-	      System.out.println(lastMessage.getFrom()[0]);
-		  System.out.println("messages.length--- " + messages.length);
-	      
-	      //Message msg = inbox.getMessage(inbox.getMessageCount());
-          //Address[] in = msg.getFrom();
-
-	      
-		  for (int i = messages.length-1; i >= 0; i--) {
-	      //for (Address address : in) {
-	         Message message = messages[i];
-	           
-	          	 System.out.println("---------------------------------");
-	  	         System.out.println("Email Number " + (i + 1));
-	  	         System.out.println("Subject: " + message.getSubject());
-	  	         System.out.println("From: " + message.getFrom()[0]);
-	  	         System.out.println("Text: " + getTextFromMessage(messages[i]));
-	  	        }
+	      System.out.println("messages.length--- " + messages.length);
+ 		  
+	      for (int i = messages.length-1; i >= 0; i--) {
+	           Message message = messages[i];	        		
+	          	System.out.println("---------------------------------");
+	          	System.out.println("Email Number: "+(i+1));
+	  	        System.out.println("Subject: " + message.getSubject());
+	  	        System.out.println("From: " + message.getFrom()[0]);
+	  	        System.out.println("Text: " + getTextFromMessage(messages[i]));
+	  	      }
 	      
 	      //close the store and folder objects
 	      emailFolder.close(false);
@@ -113,7 +98,7 @@ public class ReadEmails {
 	      String username = "anca.coroama@evozon.com";// change accordingly
 	      String password = "AncaDelia%12";// change accordingly
 	      
-	      ReadEmails readEmails = new ReadEmails();
+	      ReadAllEmails readEmails = new ReadAllEmails();
 	      readEmails.check(host, mailStoreType, username, password);
 	     
 	   }

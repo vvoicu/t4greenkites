@@ -14,7 +14,7 @@ import net.thucydides.core.annotations.Steps;
 
 
 @RunWith(SerenityRunner.class)
-public class MyRequestCheckDaysNumberTest extends BaseTest{
+public class MR02CheckAndVerifyDaysNumberTest extends BaseTest{
 
 	@Steps
 	public MyRequestSteps myRequestsSteps;
