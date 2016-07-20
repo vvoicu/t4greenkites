@@ -108,9 +108,12 @@ public class AccesGmailInbox {
  // This method read mail.
  public static void main(String[] args) {
   String message = "";
-  AccesGmailInbox zimbra = new AccesGmailInbox();
-  zimbra.read();
   
+  //AccesGmailInbox zimbra = new AccesGmailInbox();
+  //zimbra.read();
+  
+  AccesGmailInbox gmail = new AccesGmailInbox();
+  gmail.read();
   
  }
 
