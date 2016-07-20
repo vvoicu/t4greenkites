@@ -42,12 +42,8 @@ public class NVR01NewVacationRequestTest extends BaseTest {
 		userSteps.performLogin(userName, password);
 		headerNavigationSteps.selectVacationMenuItem();
 		leftMenuSteps.clickNewVacationRequest();
-		newVacationSteps.selectStartDateField();
-		newVacationSteps.clickOnTheDateFieldCaption();
-		newVacationSteps.selectDate(year, month, day);
-		newVacationSteps.selectEndDateField();
-		newVacationSteps.clickOnTheDateFieldCaption();
-		newVacationSteps.selectDate(futureYear, futureMonth, futureDay);
+		newVacationSteps.selectStartDate(year, month, day);
+		newVacationSteps.selectEndDate(futureYear, futureMonth, futureDay);
 		newVacationSteps.selectVacationType(vacationTypeName);
 		newVacationSteps.selectSpecialVacation(specialVacationName);
 		newVacationSteps.clickOnSaveButton();

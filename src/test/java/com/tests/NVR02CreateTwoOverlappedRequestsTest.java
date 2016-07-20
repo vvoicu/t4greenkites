@@ -43,21 +43,13 @@ public class NVR02CreateTwoOverlappedRequestsTest extends BaseTest {
 		userSteps.performLogin(userName, password);
 		headerNavigationSteps.selectVacationMenuItem();
 		leftMenuSteps.clickNewVacationRequest();
-		newVacationSteps.selectStartDateField();
-		newVacationSteps.clickOnTheDateFieldCaption();
-		newVacationSteps.selectDate(year, month, day);
-		newVacationSteps.selectEndDateField();
-		newVacationSteps.clickOnTheDateFieldCaption();
-		newVacationSteps.selectDate(futureYear, futureMonth, futureDay);
+		newVacationSteps.selectStartDate(year, month, day);
+		newVacationSteps.selectEndDate(futureYear, futureMonth, futureDay);
 		newVacationSteps.clickOnSaveButton();
 		headerNavigationSteps.selectVacationMenuItem();
 		leftMenuSteps.clickNewVacationRequest();
-		newVacationSteps.selectStartDateField();
-		newVacationSteps.clickOnTheDateFieldCaption();
-		newVacationSteps.selectDate(year, month, day);
-		newVacationSteps.selectEndDateField();
-		newVacationSteps.clickOnTheDateFieldCaption();
-		newVacationSteps.selectDate(futureYear, futureMonth, futureDay);
+		newVacationSteps.selectStartDate(year, month, day);
+		newVacationSteps.selectEndDate(futureYear, futureMonth, futureDay);
 		newVacationSteps.clickOnSaveButton();
 		newVacationSteps.verifyTheErrorMessage("You already have a vacantion set up overlaping the selected time range");
 	}

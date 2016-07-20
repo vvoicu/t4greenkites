@@ -37,7 +37,7 @@ public class EmailVerification extends PageObject {
 			Folder emailFolder = store.getFolder("INBOX");
 			emailFolder.open(Folder.READ_ONLY);
 			
-			for (int i = 0; i < 10; i++) {
+			for (int i = 0; i < 10; i++) { // wait till the new email is sent to the user inbox, max 10 sec
 				if (emailFolder.getUnreadMessageCount() == 0) {
 					waitABit(1000);
 				}
