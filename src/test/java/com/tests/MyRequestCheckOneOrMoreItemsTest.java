@@ -9,11 +9,14 @@ import com.selenium.steps.LeftMenuSteps;
 import com.selenium.steps.LoginSteps;
 import com.selenium.steps.MyRequestSteps;
 
-import net.serenitybdd.junit.runners.SerenityRunner;
+import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
 import net.thucydides.core.annotations.Steps;
+import net.thucydides.junit.annotations.UseTestDataFrom;
 import tools.Constants;
 
-@RunWith(SerenityRunner.class)
+@RunWith(SerenityParameterizedRunner.class)
+@UseTestDataFrom(value=Constants.CSV_FILES_PATH + "MyRequestFilterRequests.csv", separator = Constants.CSV_SEPARATOR)
+
 public class MyRequestCheckOneOrMoreItemsTest extends BaseTest{
 
 	@Steps
@@ -31,14 +34,16 @@ public class MyRequestCheckOneOrMoreItemsTest extends BaseTest{
 	@Steps
 	public LeftMenuSteps leftMenuSteps;
 	
+	public String vacationType;
+	
 	@Test
 	public void clickRandomElement(){
 		home.isTheHomePage();
 		home.starts_searchForSignInButton();
-		userSteps.performLogin(Constants.USERNAME, Constants.PASSWORD);
+		userSteps.performLogin(userName,password);
 		headerSteps.selectMenuItem();
 		leftMenuSteps.clickMyRequests();
-	//myRequestsSteps.clickOneOrMoreCheckBoxItem(Constants.VACATIONTYPE_HOLIDAY,Constants.VACATIONTYPE_VACATION, Constants.VACATIONTYPE_SPECIALVACATION, Constants.VACATIONTYPE_SICKLEAVE, Constants.VACATIONTYPE_MATERNITY);
+		myRequestsSteps.clickOneOrMoreCheckBoxItem(vacationType);
 		myRequestsSteps.clickApplyButton();
 	}
 }
