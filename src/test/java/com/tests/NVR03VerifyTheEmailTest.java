@@ -38,6 +38,7 @@ public class NVR03VerifyTheEmailTest extends BaseTest {
 	public EmailVerificationSteps email;
 
 	public String year, month, day, futureYear, futureMonth, futureDay, vacationTypeName, specialVacationName;
+	
 	@Test
 	public void verifyTheEmail(){
 		homeSteps.isTheHomePage();
@@ -45,12 +46,8 @@ public class NVR03VerifyTheEmailTest extends BaseTest {
 		userSteps.performLogin(userName, password);
 		headerNavigationSteps.selectVacationMenuItem();
 		leftMenuSteps.clickNewVacationRequest();
-		newVacationSteps.selectStartDateField();
-		newVacationSteps.clickOnTheDateFieldCaption();
-		newVacationSteps.selectDate(year, month, day);
-		newVacationSteps.selectEndDateField();
-		newVacationSteps.clickOnTheDateFieldCaption();
-		newVacationSteps.selectDate(futureYear, futureMonth, futureDay);
+		newVacationSteps.selectStartDate(year, month, day);
+		newVacationSteps.selectEndDate(futureYear, futureMonth, futureDay);
 		newVacationSteps.selectVacationType(vacationTypeName);
 		newVacationSteps.selectSpecialVacation(specialVacationName);
 		newVacationSteps.clickOnSaveButton();

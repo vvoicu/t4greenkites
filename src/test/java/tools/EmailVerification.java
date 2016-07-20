@@ -12,8 +12,6 @@ import javax.mail.Store;
 import javax.mail.internet.MimeMultipart;
 
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 
 import net.thucydides.core.pages.PageObject;
 
