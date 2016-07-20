@@ -35,9 +35,9 @@ public class MR02CheckAndVerifyDaysNumberTest extends BaseTest{
 	@Test
 	public void findElement(){
 		home.isTheHomePage();
-		home.starts_searchForSignInButton();
+		home.clickOnSignInButton();
 		userSteps.performLogin(userName,password);
-		headerSteps.selectMenuItem();
+		headerSteps.selectVacationMenuItem();
 		leftMenuSteps.clickMyRequests();
 		myRequestsSteps.clickCheckBoxItemDaysNumber("1 - 5");
 		myRequestsSteps.clickApplyButton();

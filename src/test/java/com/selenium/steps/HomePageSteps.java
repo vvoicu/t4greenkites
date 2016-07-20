@@ -9,7 +9,7 @@ public class HomePageSteps {
 	HomePage homePage;
 
 	@Step
-	public void starts_searchForSignInButton() {
+	public void clickOnSignInButton() {
 		homePage.signin();
 	}
 

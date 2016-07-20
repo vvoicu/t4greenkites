@@ -18,7 +18,7 @@ public class NewVacationRequestSteps {
 		vacationRequestPage.selectEndDate();
 	}
 	@Step
-	public void clickYear(){
+	public void clickOnTheDateFieldCaption(){
 		vacationRequestPage.clickYear();
 	}
 	
@@ -43,7 +43,7 @@ public class NewVacationRequestSteps {
 	}
 	
 	@StepGroup
-	public void selectStartDate(String year, String month, String day){
+	public void selectDate(String year, String month, String day){
 		selectRequestedYear(year);
 		selectRequestedMonth(month);
 		selectRequestedDay(day);

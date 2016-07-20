@@ -39,9 +39,9 @@ public class MR01ClickOneVacationTypeElemenentTest extends BaseTest{
 	@Test
 	public void clickRandomElement(){
 		home.isTheHomePage();
-		home.starts_searchForSignInButton();
+		home.clickOnSignInButton();
 		userSteps.performLogin(userName,password);
-		headerSteps.selectMenuItem();
+		headerSteps.selectVacationMenuItem();
 		leftMenuSteps.clickMyRequests();
 		myRequestsSteps.clickOneOrMoreCheckBoxItem(vacationType);
 		myRequestsSteps.clickApplyButton();

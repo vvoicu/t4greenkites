@@ -11,7 +11,7 @@ public class HeaderNavigationSteps {
 public HeaderNavigationMenuPage header;
 	
 	@Step
-	public void selectMenuItem(){
+	public void selectVacationMenuItem(){
 		header.selectMenuItem();
 		
 	}

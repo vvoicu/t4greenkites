@@ -30,7 +30,7 @@ public class LogoutTest extends BaseTest {
 	@Test
 	public void logout(){
 		homeSteps.isTheHomePage();
-		homeSteps.starts_searchForSignInButton();
+		homeSteps.clickOnSignInButton();
 		userSteps.performLogin(userName, password);
 		logoutSteps.clickOnUserIdentifier(userOption);
 		
