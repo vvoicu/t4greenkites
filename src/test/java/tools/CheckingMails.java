@@ -44,19 +44,19 @@ public class CheckingMails {
 			Message[] messages = emailFolder.getMessages();
 			
 			Message lastMessage = emailFolder.getMessage(messageNumbers);
-			System.out.println(lastMessage.getFrom()[0]);
+			
 			
 			System.out.println("messages.length--- " + messages.length);
 
-			for (int i = messages.length - 1; i >= 0; i--) {
+			//for (int i = messages.length - 1; i >= 0; i--) {
 
 				System.out.println("---------------------------------");
-				System.out.println("Email Number " + (i + 1));
-				System.out.println("Subject: " + messages[i].getSubject());
-				System.out.println("From: " + messages[i].getFrom()[0]);
-				System.out.println("Text: " + getTextFromMessage(messages[i]));
+				System.out.println(lastMessage.getFrom()[0]);
+				System.out.println("Subject: " + lastMessage.getSubject());
+				System.out.println("From: " + lastMessage.getFrom()[0]);
+				System.out.println("Text: " + getTextFromMessage(lastMessage));
 
-			}
+			//}
 			emailFolder.close(false);
 			store.close();
 			// } catch (NoSuchProviderException e) {
