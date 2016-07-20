@@ -40,9 +40,9 @@ public class FreeDaysHistoryPageTest {
 	@Test
 	public void checkFreeDaysHistory () {
 		home.isTheHomePage();
-		home.starts_searchForSignInButton();
+		home.clickOnSignInButton();
 		userSteps.performLogin(Constants.USERNAME, Constants.PASSWORD);
-		headerSteps.selectMenuItem();
+		headerSteps.selectVacationMenuItem();
 		leftMenuSteps.clickFreeDaysHistory();
 		freeDaysHistory.selectVactionTypeFilter("Vacation days");
 		freeDaysHistory.selectCheckboxOperation("Removed Days");

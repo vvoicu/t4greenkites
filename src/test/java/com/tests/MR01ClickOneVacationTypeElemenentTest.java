@@ -9,12 +9,15 @@ import com.selenium.steps.LeftMenuSteps;
 import com.selenium.steps.LoginSteps;
 import com.selenium.steps.MyRequestSteps;
 
-import net.serenitybdd.junit.runners.SerenityRunner;
+import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
 import net.thucydides.core.annotations.Steps;
+import net.thucydides.junit.annotations.UseTestDataFrom;
+import tools.Constants;
 
+@RunWith(SerenityParameterizedRunner.class)
+@UseTestDataFrom(value=Constants.CSV_FILES_PATH + "MyRequestFilterRequests.csv", separator = Constants.CSV_SEPARATOR)
 
-@RunWith(SerenityRunner.class)
-public class MyRequestCheckDaysNumberTest extends BaseTest{
+public class MR01ClickOneVacationTypeElemenentTest extends BaseTest{
 
 	@Steps
 	public MyRequestSteps myRequestsSteps;
@@ -31,20 +34,16 @@ public class MyRequestCheckDaysNumberTest extends BaseTest{
 	@Steps
 	public LeftMenuSteps leftMenuSteps;
 	
-		
+	public String vacationType;
+	
 	@Test
-	public void findElement(){
+	public void clickRandomElement(){
 		home.isTheHomePage();
-		home.starts_searchForSignInButton();
+		home.clickOnSignInButton();
 		userSteps.performLogin(userName,password);
-		headerSteps.selectMenuItem();
+		headerSteps.selectVacationMenuItem();
 		leftMenuSteps.clickMyRequests();
-		myRequestsSteps.clickCheckBoxItemDaysNumber("1 - 5");
+		myRequestsSteps.clickOneOrMoreCheckBoxItem(vacationType);
 		myRequestsSteps.clickApplyButton();
-		myRequestsSteps.getDaysNumberFirstNumber("1 - 5");
-		myRequestsSteps.getDaysNumberLastNumber("1 - 5");
-		myRequestsSteps.getDaysNumbercompareNumbers();
-		
-
 	}
 }

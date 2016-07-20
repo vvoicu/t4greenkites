@@ -1,25 +1,27 @@
 package tools;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.security.NoSuchProviderException;
 import java.util.Properties;
 
+import javax.mail.Address;
 import javax.mail.BodyPart;
 import javax.mail.Folder;
 import javax.mail.Message;
 import javax.mail.MessagingException;
-import javax.mail.Multipart;
 import javax.mail.Session;
 import javax.mail.Store;
 import javax.mail.internet.MimeMultipart;
 
-public class CheckingMails {
+import org.junit.Assert;
 
-	public void check() {
+import net.thucydides.core.pages.PageObject;
+
+public class EmailVerification extends PageObject {
+
+	public String subject;
+	public Address from;
+	public String textToVerify;
+
+	public void check(String emailSubject) {
 
 		try {
 			Properties properties = new Properties();
@@ -34,33 +36,40 @@ public class CheckingMails {
 
 			Folder emailFolder = store.getFolder("INBOX");
 			emailFolder.open(Folder.READ_ONLY);
-
 			
+			for (int i = 0; i < 10; i++) {
+				if (emailFolder.getUnreadMessageCount() == 0) {
+					waitABit(1000);
+				}
+			}
 			int messageNumbers = 0;
-			
+
 			messageNumbers = emailFolder.getMessageCount();
-			
+
 			System.out.println("YOU HAVE " + messageNumbers);
 			Message[] messages = emailFolder.getMessages();
-			
+
 			Message lastMessage = emailFolder.getMessage(messageNumbers);
-			
-			
+
 			System.out.println("messages.length--- " + messages.length);
 
-			//for (int i = messages.length - 1; i >= 0; i--) {
-
-				System.out.println("---------------------------------");
-				System.out.println(lastMessage.getFrom()[0]);
-				System.out.println("Subject: " + lastMessage.getSubject());
-				System.out.println("From: " + lastMessage.getFrom()[0]);
-				System.out.println("Text: " + getTextFromMessage(lastMessage));
-
-			//}
+			System.out.println("---------------------------------");
+			System.out.println(lastMessage.getFrom()[0]);
+			System.out.println("Subject: " + lastMessage.getSubject());
+			System.out.println("From: " + lastMessage.getFrom()[0]);
+			System.out.println("Text: " + getTextFromMessage(lastMessage));
+			subject = lastMessage.getSubject();
+			from = lastMessage.getFrom()[0];
+			
+			
+			boolean verifyText = false;
+			if (subject.equals(emailSubject)) {
+				verifyText = true;
+			}
+			Assert.assertTrue("Email not found", verifyText);
+			
 			emailFolder.close(false);
 			store.close();
-			// } catch (NoSuchProviderException e) {
-			// e.printStackTrace();
 		} catch (MessagingException e) {
 			e.printStackTrace();
 		} catch (Exception e) {
@@ -96,29 +105,6 @@ public class CheckingMails {
 			}
 		}
 		return result;
-	}
-
-	public static void writeToFile(String text) {
-		try {
-			File file = new File("filename.txt");
-			// if file doesnt exists, then create it
-			if (!file.exists()) {
-				file.createNewFile();
-			}
-			FileWriter fw = new FileWriter(file.getAbsoluteFile());
-			BufferedWriter bw = new BufferedWriter(fw);
-			bw.write(text);
-			bw.close();
-			System.out.println("Done");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-
-	public static void main(String[] args) {
-		CheckingMails checkMails = new CheckingMails();
-		checkMails.check();
-
 	}
 
 }

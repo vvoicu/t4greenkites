@@ -33,9 +33,9 @@ public class ContentPageTest extends BaseTest{
 	
 	@Test
 	public void createNewVacationRequest() {
-		home.starts_searchForSignInButton();
+		home.clickOnSignInButton();
 		userSteps.performLogin(Constants.USERNAME, Constants.PASSWORD);
-		headerSteps.selectMenuItem();
+		headerSteps.selectVacationMenuItem();
 		leftMenuSteps.clickNewVacationRequest();
 		content.searchForSaveButoon();
 	}

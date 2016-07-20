@@ -7,14 +7,17 @@ import com.selenium.steps.HeaderNavigationSteps;
 import com.selenium.steps.HomePageSteps;
 import com.selenium.steps.LeftMenuSteps;
 import com.selenium.steps.LoginSteps;
-import com.selenium.steps.contentPageSteps;
+import com.selenium.steps.MyRequestSteps;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
-import tools.Constants;
+
 
 @RunWith(SerenityRunner.class)
-public class Test_ContentPage extends BaseTest{
+public class MR02CheckAndVerifyDaysNumberTest extends BaseTest{
+
+	@Steps
+	public MyRequestSteps myRequestsSteps;
 	
 	@Steps
 	public LoginSteps userSteps;
@@ -26,19 +29,22 @@ public class Test_ContentPage extends BaseTest{
 	public HeaderNavigationSteps headerSteps;
 	
 	@Steps
-	public LeftMenuSteps leftMenuSteps;	
+	public LeftMenuSteps leftMenuSteps;
 	
-	@Steps
-	public contentPageSteps content;
-	
+		
 	@Test
-	public void createNewVacationRequest() {
+	public void findElement(){
 		home.isTheHomePage();
 		home.clickOnSignInButton();
-		userSteps.performLogin(Constants.USERNAME, Constants.PASSWORD);
+		userSteps.performLogin(userName,password);
 		headerSteps.selectVacationMenuItem();
-		leftMenuSteps.clickNewVacationRequest();
-		content.searchForSaveButoon();
+		leftMenuSteps.clickMyRequests();
+		myRequestsSteps.clickCheckBoxItemDaysNumber("1 - 5");
+		myRequestsSteps.clickApplyButton();
+		myRequestsSteps.getDaysNumberFirstNumber("1 - 5");
+		myRequestsSteps.getDaysNumberLastNumber("1 - 5");
+		myRequestsSteps.getDaysNumbercompareNumbers();
+		
+
 	}
-	
 }

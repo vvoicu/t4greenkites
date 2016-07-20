@@ -8,71 +8,91 @@ import net.thucydides.core.annotations.StepGroup;
 public class NewVacationRequestSteps {
 
 	public NewVacationRequest_ContentPage vacationRequestPage;
-	
+
 	@Step
-	public void selectStartDateField(){
+	public void selectStartDateField() {
 		vacationRequestPage.selectStartDate();
 	}
+
 	@Step
-	public void selectEndDateField(){
+	public void selectEndDateField() {
 		vacationRequestPage.selectEndDate();
 	}
+
 	@Step
-	public void clickYear(){
+	public void clickOnTheDateFieldCaption() {
 		vacationRequestPage.clickYear();
 	}
-	
+
 	@Step
-	public void selectRequestedYear(String year){
+	public void selectRequestedYear(String year) {
 		vacationRequestPage.selectYear(year);
 	}
-	
+
 	@Step
-	public void selectRequestedMonth(String month){
+	public void selectRequestedMonth(String month) {
 		vacationRequestPage.selectMonth(month);
 	}
-	
+
 	@Step
-	public void selectRequestedDay(String day){
+	public void selectRequestedDay(String day) {
 		vacationRequestPage.selectDay(day);
 	}
-	
+
 	@Step
-	public void waitSeconds(){
+	public void waitSeconds() {
 		vacationRequestPage.waitTenSeconds();
 	}
-	
+
 	@StepGroup
-	public void selectStartDate(String year, String month, String day){
+	public void selectDate(String year, String month, String day) {
 		selectRequestedYear(year);
 		selectRequestedMonth(month);
 		selectRequestedDay(day);
-		
+
 	}
-	
+
+	@StepGroup
+	public void selectStartDate(String year, String month, String day) {
+		selectStartDateField();
+		clickOnTheDateFieldCaption();
+		selectRequestedYear(year);
+		selectRequestedMonth(month);
+		selectRequestedDay(day);
+	}
+
+	@StepGroup
+	public void selectEndDate(String year, String month, String day) {
+		selectEndDateField();
+		clickOnTheDateFieldCaption();
+		selectRequestedYear(year);
+		selectRequestedMonth(month);
+		selectRequestedDay(day);
+	}
+
 	@Step
-	public void clickOnSaveButton(){
+	public void clickOnSaveButton() {
 		vacationRequestPage.clickOnSaveButton();
 	}
-	
+
 	@Step
-	public void verifyTheErrorMessage(String textToVerify){
+	public void verifyTheErrorMessage(String textToVerify) {
 		vacationRequestPage.verifyTheErrorMessage(textToVerify);
 	}
-	
+
 	@Step
-	public void selectVacationType(String vacationTypeName){
+	public void selectVacationType(String vacationTypeName) {
 		vacationRequestPage.selectVacationType(vacationTypeName);
 	}
-	
-	@Step 
-	public void selectSpecialVacation(String specialVacationName){
+
+	@Step
+	public void selectSpecialVacation(String specialVacationName) {
 		vacationRequestPage.selectSpecialVacation(specialVacationName);
 	}
-	
+
 	@Step
-	public void clickOnDropDown(){
+	public void clickOnDropDown() {
 		vacationRequestPage.clickOnDropDown();
 	}
-	
+
 }
